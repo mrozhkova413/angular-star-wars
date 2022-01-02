@@ -11,12 +11,12 @@ let list: Character[] = [
   {id: 3, name: 'name3', planet: 'planet3'},
 ];
 
-export const initialState: AppState = {character: null, listCharacters: []}
+export const initialState: AppState = {selectedCharacter: null, listCharacters: []}
 
 export const charactersReducer = createReducer(
   initialState,
   on(CharactersActionsType.selectCharacter,
-    (state, { id }) => ({...state, character: list[id]})),
+    (state, { id }) => ({...state, selectedCharacter: list[id]})),
   on(CharactersActionsType.loadListCharactersSuccess,
     (state, { listCharacters }) => ({...state, listCharacters: listCharacters}))
 );

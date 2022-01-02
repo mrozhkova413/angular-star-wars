@@ -3,9 +3,10 @@ import { Character } from './store/characters/character.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { selectCharacter, loadListCharacters } from './store/characters/characters.actions';
+import { tap } from 'rxjs/operators';
 
 export interface AppState {
-  character: Character;
+  selectedCharacter: Character;
   listCharacters: Character[];
 }
 
@@ -16,12 +17,14 @@ export interface AppState {
 })
 export class AppComponent implements OnInit {
   title = 'angular-star-wars';
-  character$: Observable<Character>
+  selectedCharacter$: Observable<Character>
   listCharacters$: Observable<Character[]>
 
   constructor(private store: Store<AppState>) {
-    this.character$ = this.store.select('character')
-    this.listCharacters$ = this.store.select('listCharacters');
+    this.selectedCharacter$ = this.store.select('selectedCharacter')
+    this.listCharacters$ = this.store.select('listCharacters').pipe(
+      tap((data) => console.log(data))
+    );
   }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 <div *ngFor="let char of listCharacters$ | async" (click)="selectCharacter(char.id)">
   {{ char.name }}
 </div>
-<div *ngIf="(character$ | async) as character">
+<div *ngIf="(selectedCharacter$ | async) as character">
   <p>{{ character.id }}<br/>{{ character.name }}</p>
 </div>
