@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Character } from './store/characters/character.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectCharacter } from './store/characters/characters.actions';
-
+import { selectCharacter, loadListCharacters } from './store/characters/characters.actions';
 
 interface AppState {
   character: Character;
+  listCharacters: Character[];
 }
 
 @Component({
@@ -14,15 +14,18 @@ interface AppState {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-star-wars';
-
   character$: Observable<Character>
-
-  list: number[] = [0, 1, 2, 3]
+  listCharacters$: Observable<Character[]>
 
   constructor(private store: Store<AppState>) {
     this.character$ = this.store.select('character')
+    this.listCharacters$ = this.store.select('listCharacters');
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(loadListCharacters());
   }
 
   selectCharacter(id: number) {
