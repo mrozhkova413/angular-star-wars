@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { selectCharacter, loadListCharacters } from './store/characters/characters.actions';
 
-interface AppState {
+export interface AppState {
   character: Character;
   listCharacters: Character[];
 }

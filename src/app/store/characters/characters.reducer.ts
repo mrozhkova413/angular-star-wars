@@ -1,3 +1,4 @@
+import { AppState } from 'src/app/app.component';
 import * as CharactersActionsType from './characters.actions';
 
 import { createReducer, on } from '@ngrx/store';
@@ -10,9 +11,13 @@ let list: Character[] = [
   {id: 3, name: 'name3', planet: 'planet3'},
 ];
 
-export const initialState: Character = null
+export const initialState: AppState = {character: null, listCharacters: []}
 
 export const charactersReducer = createReducer(
   initialState,
-  on(CharactersActionsType.selectCharacter, (state, { id }) => ( list[id] ))
+  on(CharactersActionsType.selectCharacter,
+    (state, { id }) => ({...state, character: list[id]})),
+  on(CharactersActionsType.loadListCharactersSuccess,
+    (state, { listCharacters }) => ({...state, listCharacters: listCharacters}))
 );
+
