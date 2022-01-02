@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({
-      character: charactersReducer
+      selectedCharacter: charactersReducer
     }),
     EffectsModule.forRoot([CharacterEffects]),
   ],
