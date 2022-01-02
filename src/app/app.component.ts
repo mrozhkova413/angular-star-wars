@@ -21,10 +21,8 @@ export class AppComponent implements OnInit {
   listCharacters$: Observable<Character[]>
 
   constructor(private store: Store<AppState>) {
-    this.selectedCharacter$ = this.store.select('selectedCharacter')
-    this.listCharacters$ = this.store.select('listCharacters').pipe(
-      tap((data) => console.log(data))
-    );
+    this.selectedCharacter$ = this.store.select('selectedCharacter');
+    this.listCharacters$ = this.store.select('listCharacters');
   }
 
   ngOnInit(): void {
