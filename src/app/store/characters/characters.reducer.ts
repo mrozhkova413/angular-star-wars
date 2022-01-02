@@ -10,8 +10,6 @@ let list: Character[] = [
   {id: 3, name: 'name3', planet: 'planet3'},
 ];
 
-let char: Character = {id: 0, name: 'name0', planet: 'planet0'};
-
 export const initialState: Character = null
 
 export const charactersReducer = createReducer(
