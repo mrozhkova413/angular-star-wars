@@ -5,10 +5,10 @@ import { Observable } from 'rxjs';
 import { selectCharacter, loadListCharacters } from './store/characters/characters.actions';
 import { tap } from 'rxjs/operators';
 
-export interface AppState {
+export interface AppState {root: {
   selectedCharacter: Character;
   listCharacters: Character[];
-}
+}}
 
 @Component({
   selector: 'app-root',
@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
   listCharacters$: Observable<Character[]>
 
   constructor(private store: Store<AppState>) {
-    this.selectedCharacter$ = this.store.select('selectedCharacter');
-    this.listCharacters$ = this.store.select('listCharacters');
+    this.selectedCharacter$ = this.store.select(state => state.root.selectedCharacter);
+    this.listCharacters$ = this.store.select(state => state.root.listCharacters);
   }
 
   ngOnInit(): void {
