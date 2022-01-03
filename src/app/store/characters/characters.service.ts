@@ -11,7 +11,7 @@ const baseApi = 'https://swapi.dev/api/'
 export class CharactersService {
   constructor (private http: HttpClient) {}
 
-  getListCharacters(): Observable<Character[]> {
+  getListCharacters(section: string): Observable<Character[]> {
     return of([
       {id: 0, name: 'name0', planet: 'planet0'},
       {id: 1, name: 'name1', planet: 'planet1'},

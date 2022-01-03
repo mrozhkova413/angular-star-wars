@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadListCharacters());
+    this.store.dispatch(loadListCharacters({ section: "people" }));
   }
 
   selectCharacter(id: number) {
