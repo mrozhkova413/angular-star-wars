@@ -12,7 +12,7 @@ export class MainPageEffects {
     ofType(loadList),
     mergeMap((action) => this.mainPageService.getList(action.section)
       .pipe(
-        map(list => loadListSuccess( { list: list } ) ),
+        map(list => loadListSuccess( { list: list.results } ) ),
         catchError(() => of(loadListError()))
       ))
     )
