@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from './store/characters/character.model';
+import { Character } from './store/character.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { select, loadList } from './store/characters/characters.actions';
+import { select, loadList } from './store/characters.actions';
 
 export interface AppState { root: MainPageState }
 

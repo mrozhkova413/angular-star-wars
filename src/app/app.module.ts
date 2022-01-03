@@ -6,8 +6,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { mainPageReducer } from './store/characters/characters.reducer';
-import { CharacterEffects } from './store/characters/characters.effects';
+import { mainPageReducer } from './store/characters.reducer';
+import { CharacterEffects } from './store/characters.effects';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
