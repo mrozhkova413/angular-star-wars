@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Character } from './store/character.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { select, loadList } from './store/characters.actions';
+import { select, loadList } from './store/main-page.actions';
 
 export interface AppState { root: MainPageState }
 

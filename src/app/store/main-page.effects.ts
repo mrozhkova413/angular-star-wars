@@ -1,8 +1,8 @@
-import { loadList, loadListSuccess, loadListError } from './characters.actions';
+import { loadList, loadListSuccess, loadListError } from './main-page.actions';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import { MainPageService } from './characters.service';
+import { MainPageService } from './main-page.service';
 import { of } from 'rxjs';
 
 @Injectable()

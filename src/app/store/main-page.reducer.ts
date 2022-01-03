@@ -1,5 +1,5 @@
 import { MainPageState } from 'src/app/app.component';
-import * as MainPageActionsType from './characters.actions';
+import * as MainPageActionsType from './main-page.actions';
 
 import { createReducer, on } from '@ngrx/store';
 
