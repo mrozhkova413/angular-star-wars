@@ -12,7 +12,7 @@ export class CharacterEffects {
     ofType(loadListCharacters),
     mergeMap((action) => this.charactersService.getListCharacters(action.section)
       .pipe(
-        map(chars => loadListCharactersSuccess( { listCharacters: chars } ) ),
+        map(chars => loadListCharactersSuccess( { list: chars } ) ),
         catchError(() => of(loadListCharactersError()))
       ))
     )

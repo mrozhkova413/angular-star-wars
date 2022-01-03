@@ -4,11 +4,11 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { selectCharacter, loadListCharacters } from './store/characters/characters.actions';
 
-export interface AppState {root: CharactersState}
+export interface AppState { root: MainPageState }
 
-export interface CharactersState {
-  selectedCharacter: Character;
-  listCharacters: Character[];
+export interface MainPageState {
+  selected: Character;
+  list: Character[];
 }
 
 @Component({
@@ -18,12 +18,12 @@ export interface CharactersState {
 })
 export class AppComponent implements OnInit {
   title = 'angular-star-wars';
-  selectedCharacter$: Observable<Character>
-  listCharacters$: Observable<Character[]>
+  selected$: Observable<Character>
+  list$: Observable<Character[]>
 
   constructor(private store: Store<AppState>) {
-    this.selectedCharacter$ = this.store.select(state => state.root.selectedCharacter);
-    this.listCharacters$ = this.store.select(state => state.root.listCharacters);
+    this.selected$ = this.store.select(state => state.root.selected);
+    this.list$ = this.store.select(state => state.root.list);
   }
 
   ngOnInit(): void {

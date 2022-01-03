@@ -18,6 +18,5 @@ export class CharactersService {
       {id: 2, name: 'name2', planet: 'planet2'},
       {id: 3, name: 'name3', planet: 'planet3'},
     ]);
-    // return this.http.get('${baseApi}/people');
   }
 }
