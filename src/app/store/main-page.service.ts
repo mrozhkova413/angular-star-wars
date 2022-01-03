@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Character, PagedResults } from './main-page.models';
+import { Character, PagedResults } from '../app.models';
 import { Observable } from 'rxjs';
 
 const baseApi = 'https://swapi.dev/api/'

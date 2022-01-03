@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from './store/main-page.models';
+import { Character } from './app.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { select, loadList } from './store/main-page.actions';
