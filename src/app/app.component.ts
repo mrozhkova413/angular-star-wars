@@ -4,10 +4,12 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { selectCharacter, loadListCharacters } from './store/characters/characters.actions';
 
-export interface AppState {root: {
+export interface AppState {root: CharactersState}
+
+export interface CharactersState {
   selectedCharacter: Character;
   listCharacters: Character[];
-}}
+}
 
 @Component({
   selector: 'app-root',
