@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { mainPageReducer } from './store/main-page.reducer';
-import { CharacterEffects } from './store/main-page.effects';
+import { MainPageEffects } from './store/main-page.effects';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
-    EffectsModule.forRoot([CharacterEffects]),
+    EffectsModule.forRoot([MainPageEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]

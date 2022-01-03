@@ -1,6 +1,6 @@
-<div *ngFor="let char of list$ | async" (click)="selectCharacter(char.id)">
-  {{ char.name }}
+<div *ngFor="let item of list$ | async" (click)="selectCharacter(item.id)">
+  {{ item.name }}
 </div>
-<div *ngIf="(selected$ | async) as character">
-  <p>{{ character.id }}<br/>{{ character.name }}</p>
+<div *ngIf="(selected$ | async) as item">
+  <p>{{ item.id }}<br/>{{ item.name }}</p>
 </div>

@@ -6,13 +6,13 @@ import { MainPageService } from './main-page.service';
 import { of } from 'rxjs';
 
 @Injectable()
-export class CharacterEffects {
+export class MainPageEffects {
 
   loadListCharacters$ = createEffect(() => this.actions$.pipe(
     ofType(loadList),
     mergeMap((action) => this.mainPageService.getList(action.section)
       .pipe(
-        map(chars => loadListSuccess( { list: chars } ) ),
+        map(list => loadListSuccess( { list: list } ) ),
         catchError(() => of(loadListError()))
       ))
     )
