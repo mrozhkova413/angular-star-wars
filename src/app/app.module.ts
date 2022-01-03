@@ -6,7 +6,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { charactersReducer } from './store/characters/characters.reducer';
+import { mainPageReducer } from './store/characters/characters.reducer';
 import { CharacterEffects } from './store/characters/characters.effects';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({
-      root: charactersReducer
+      root: mainPageReducer
     }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

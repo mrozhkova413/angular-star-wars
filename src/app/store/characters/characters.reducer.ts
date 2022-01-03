@@ -1,15 +1,15 @@
 import { MainPageState } from 'src/app/app.component';
-import * as CharactersActionsType from './characters.actions';
+import * as MainPageActionsType from './characters.actions';
 
 import { createReducer, on } from '@ngrx/store';
 
 export const initialState: MainPageState = {selected: null, list: []}
 
-export const charactersReducer = createReducer(
+export const mainPageReducer = createReducer(
   initialState,
-  on(CharactersActionsType.selectCharacter,
+  on(MainPageActionsType.select,
     (state, { id }) =>({...state, selected: state.list[id]})),
-  on(CharactersActionsType.loadListCharactersSuccess,
+  on(MainPageActionsType.loadListSuccess,
     (state, { list }) => ({...state, list: list}))
 );
 

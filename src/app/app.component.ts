@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Character } from './store/characters/character.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectCharacter, loadListCharacters } from './store/characters/characters.actions';
+import { select, loadList } from './store/characters/characters.actions';
 
 export interface AppState { root: MainPageState }
 
@@ -27,10 +27,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadListCharacters({ section: "people" }));
+    this.store.dispatch(loadList({ section: "people" }));
   }
 
   selectCharacter(id: number) {
-    this.store.dispatch(selectCharacter({ id: id }))
+    this.store.dispatch(select({ id: id }))
   }
 }
