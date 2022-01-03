@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Character } from './character.model';
+import { Character } from './main-page.models';
 
 export const select = createAction('[Main Page] Select', props<{ id: number; }>());
 export const loadList = createAction('[Main Page] Load list', props<{ section: string; }>());
