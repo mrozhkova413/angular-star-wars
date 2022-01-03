@@ -3,7 +3,6 @@ import { Character } from './store/characters/character.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { selectCharacter, loadListCharacters } from './store/characters/characters.actions';
-import { tap } from 'rxjs/operators';
 
 export interface AppState {root: {
   selectedCharacter: Character;
