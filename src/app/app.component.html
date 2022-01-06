@@ -1,7 +1,7 @@
-<mat-select multiple #appselect (selectionChange)="onChange(appselect.value)">
+<mat-select multiple #appselect (selectionChange)="onChange(appselect.value, appinput.value)">
   <mat-option *ngFor="let section of sections" [value]="section">{{ section }}</mat-option>
 </mat-select>
-<input #appinput (keyup)="onKey(appinput.value)">
+<input #appinput (keyup)="onChange(appselect.value, appinput.value)">
 
 <div *ngFor="let item of (list$ | async); let i = index;" (click)="selectCharacter(i)">
   {{ item.name }}
