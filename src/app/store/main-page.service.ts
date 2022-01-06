@@ -12,7 +12,7 @@ export class MainPageService {
   constructor (private http: HttpClient) {}
 
   getList(section: string, search: string | null): Observable<PagedResults<People>> {
-    if (search === null) {
+    if (!search) {
       return this.http.get<PagedResults<People>>(`${baseApi}/${section}`);
     }
 
