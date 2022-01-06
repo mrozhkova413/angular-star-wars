@@ -7,7 +7,7 @@ import { select, loadList } from './store/main-page.actions';
 export interface AppState { root: MainPageState }
 
 export interface MainPageState {
-  selected: People;
+  selected: People | null;
   list: People[];
 }
 
@@ -18,7 +18,7 @@ export interface MainPageState {
 })
 export class AppComponent implements OnInit {
   title = 'angular-star-wars';
-  selected$: Observable<People>
+  selected$: Observable<People | null>
   list$: Observable<People[]>
 
   constructor(private store: Store<AppState>) {

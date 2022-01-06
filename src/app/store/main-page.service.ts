@@ -11,7 +11,7 @@ const baseApi = 'https://swapi.dev/api'
 export class MainPageService {
   constructor (private http: HttpClient) {}
 
-  getList(section: string, search: string): Observable<PagedResults<People>> {
+  getList(section: string, search: string | null): Observable<PagedResults<People>> {
     if (search === null) {
       return this.http.get<PagedResults<People>>(`${baseApi}/${section}`);
     }
