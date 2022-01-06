@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from './app.models';
+import { People } from './app.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { select, loadList } from './store/main-page.actions';
@@ -7,8 +7,8 @@ import { select, loadList } from './store/main-page.actions';
 export interface AppState { root: MainPageState }
 
 export interface MainPageState {
-  selected: Character;
-  list: Character[];
+  selected: People;
+  list: People[];
 }
 
 @Component({
@@ -18,8 +18,8 @@ export interface MainPageState {
 })
 export class AppComponent implements OnInit {
   title = 'angular-star-wars';
-  selected$: Observable<Character>
-  list$: Observable<Character[]>
+  selected$: Observable<People>
+  list$: Observable<People[]>
 
   constructor(private store: Store<AppState>) {
     this.selected$ = this.store.select(state => state.root.selected);
