@@ -27,10 +27,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadList({ section: "people" }));
+    this.store.dispatch(loadList({ section: "people", search: null }));
   }
 
   selectCharacter(id: number) {
     this.store.dispatch(select({ id: id }))
+  }
+
+  onKey(event: KeyboardEvent) {
+    this.store.dispatch(loadList({ section: "people", search: (event.target as HTMLInputElement).value  }));
   }
 }

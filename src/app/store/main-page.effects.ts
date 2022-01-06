@@ -10,7 +10,7 @@ export class MainPageEffects {
 
   loadListCharacters$ = createEffect(() => this.actions$.pipe(
     ofType(loadList),
-    mergeMap((action) => this.mainPageService.getList(action.section)
+    mergeMap((action) => this.mainPageService.getList(action.section, action.search)
       .pipe(
         map(list => loadListSuccess( { list: list.results } ) ),
         catchError(() => of(loadListError()))

@@ -1,3 +1,5 @@
+<input (keyup)="onKey($event)">
+
 <div *ngFor="let item of (list$ | async); let i = index;" (click)="selectCharacter(i)">
   {{ item.name }}
 </div>
