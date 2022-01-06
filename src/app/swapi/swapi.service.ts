@@ -14,6 +14,7 @@ export class SwapiService {
   ) {}
 
   getList(section: string, search: string | null): Observable<PagedResults<People>> {
-    return this.http.get<PagedResults<People>>(`${this.swapiUrl}/${section}/?search=${search}`);
+    // return this.http.get<PagedResults<People>>(`${this.swapiUrl}/${section}/?search=${search}`);
+    return this.http.get<PagedResults<People>>(`${this.swapiUrl}/people/?search=${search}`);
   }
 }
