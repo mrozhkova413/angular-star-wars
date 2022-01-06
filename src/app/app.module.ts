@@ -9,6 +9,8 @@ import { StoreModule } from '@ngrx/store';
 import { mainPageReducer } from './store/main-page.reducer';
 import { MainPageEffects } from './store/main-page.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { API_URL } from './app.config';
+import { environment } from './environment/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,12 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     EffectsModule.forRoot([MainPageEffects]),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: API_URL,
+      useValue: environment.api,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
