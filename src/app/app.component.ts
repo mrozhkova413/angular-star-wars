@@ -41,8 +41,6 @@ export class AppComponent implements OnInit {
   }
 
   onChange(value: string) {
-    // let value = (event.target as HTMLInputElement).value
-    console.log(value)
     this.store.dispatch(loadList({ section: "people", search: value  }));
   }
 }
