@@ -29,14 +29,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadList({ section: "people", search: '' }));
+    this.store.dispatch(loadList({ sections: this.sections, search: '' }));
   }
 
   selectCharacter(id: number) {
     this.store.dispatch(select({ id: id }))
   }
 
-  onChange(section: string, search: string) {
-    this.store.dispatch(loadList({ section: section, search: search  }));
+  onChange(sections: string[], search: string) {
+    this.store.dispatch(loadList({ sections: sections ? sections : this.sections, search: search  }));
   }
 }
