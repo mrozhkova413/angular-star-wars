@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { People } from './swapi/swapi.models';
+import { ALL } from './swapi/swapi.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { select, loadList } from './store/main-page.actions';
@@ -7,8 +7,8 @@ import { select, loadList } from './store/main-page.actions';
 export interface AppState { root: MainPageState }
 
 export interface MainPageState {
-  selected: People | null;
-  list: People[];
+  selected: ALL | null;
+  list: ALL[];
 }
 
 @Component({
@@ -18,8 +18,8 @@ export interface MainPageState {
 })
 export class AppComponent implements OnInit {
   title = 'angular-star-wars';
-  selected$: Observable<People | null>
-  list$: Observable<People[]>
+  selected$: Observable<ALL | null>
+  list$: Observable<ALL[]>
 
   sections: string[] = ['people', 'starships', 'planets'];
 

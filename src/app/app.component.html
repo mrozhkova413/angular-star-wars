@@ -4,8 +4,8 @@
 <input #appinput (keyup)="onChange(appselect.value, appinput.value)">
 
 <div *ngFor="let item of (list$ | async); let i = index;" (click)="selectCharacter(i)">
-  {{ item.name }}
+  {{ item.url }}
 </div>
 <div *ngIf="(selected$ | async) as item">
-  <p>{{ item.birth_year }}<br/>{{ item.name }}</p>
+  <p>{{ item.url }}<br/>{{ item.created }}</p>
 </div>

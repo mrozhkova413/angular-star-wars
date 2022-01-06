@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, catchError, concatMap } from 'rxjs/operators';
 import { SwapiService } from '../swapi/swapi.service';
 import { of, combineLatest } from 'rxjs';
-import { People } from '../swapi/swapi.models';
+import { ALL } from '../swapi/swapi.models';
 
 @Injectable()
 export class MainPageEffects {
@@ -15,7 +15,7 @@ export class MainPageEffects {
     concatMap((action) => combineLatest(
       action.sections.map(section => this.apiService.getList(section, action.search)))
   )).pipe(
-        map(list => loadListSuccess( { list: list.reduce((accumulator, value) => accumulator.concat(value.results), [] as People[]) })),
+        map(list => loadListSuccess( { list: list.reduce((accumulator, value) => accumulator.concat(value.results), [] as ALL[]) })),
         catchError(() => of(loadListError()))
       )
     );

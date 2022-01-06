@@ -116,4 +116,4 @@ export interface People extends Resource {
   vehicles: ResourceUrl[];
 };
 
-type ALL = People | Planet | Film | Species | Starship | Vehicle
+export type ALL = People | Planet | Film | Species | Starship | Vehicle
