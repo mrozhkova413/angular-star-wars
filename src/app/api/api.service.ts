@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
-import { People, PagedResults } from '../app.models';
+import { People, PagedResults } from './api.models';
 import { Observable } from 'rxjs';
 import { API_URL } from '../app.config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MainPageService {
+export class ApiService {
   constructor (
     private http: HttpClient,
     @Inject(API_URL) private baseApi: string
