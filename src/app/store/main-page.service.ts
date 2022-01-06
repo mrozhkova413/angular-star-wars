@@ -14,10 +14,6 @@ export class MainPageService {
   ) {}
 
   getList(section: string, search: string | null): Observable<PagedResults<People>> {
-    if (!search) {
-      return this.http.get<PagedResults<People>>(`${this.baseApi}/${section}`);
-    }
-
     return this.http.get<PagedResults<People>>(`${this.baseApi}/${section}/?search=${search}`);
   }
 }
