@@ -21,6 +21,8 @@ export class AppComponent implements OnInit {
   selected$: Observable<People | null>
   list$: Observable<People[]>
 
+  sections: string[] = ['people', 'starships', 'planets'];
+
   constructor(private store: Store<AppState>) {
     this.selected$ = this.store.select(state => state.root.selected);
     this.list$ = this.store.select(state => state.root.list);
