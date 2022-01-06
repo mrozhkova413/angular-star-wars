@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
-import { People, PagedResults } from './api.models';
+import { People, PagedResults } from './swapi.models';
 import { Observable } from 'rxjs';
-import { API_URL } from '../app.config';
+import { SWAPI_URL } from '../app.config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class SwapiService {
   constructor (
     private http: HttpClient,
-    @Inject(API_URL) private baseApi: string
+    @Inject(SWAPI_URL) private swapiUrl: string
   ) {}
 
   getList(section: string, search: string | null): Observable<PagedResults<People>> {
-    return this.http.get<PagedResults<People>>(`${this.baseApi}/${section}/?search=${search}`);
+    return this.http.get<PagedResults<People>>(`${this.swapiUrl}/${section}/?search=${search}`);
   }
 }

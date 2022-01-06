@@ -2,7 +2,7 @@ import { loadList, loadListSuccess, loadListError } from './main-page.actions';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import { ApiService } from '../api/api.service';
+import { SwapiService } from '../swapi/swapi.service';
 import { of } from 'rxjs';
 
 @Injectable()
@@ -20,6 +20,6 @@ export class MainPageEffects {
 
   constructor(
     private actions$: Actions,
-    private apiService: ApiService
+    private apiService: SwapiService
   ) {}
 }

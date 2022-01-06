@@ -10,7 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { mainPageReducer } from './store/main-page.reducer';
 import { MainPageEffects } from './store/main-page.effects';
 import { HttpClientModule } from '@angular/common/http';
-import { API_URL } from './app.config';
+import { SWAPI_URL } from './app.config';
 import { environment } from './environment/environment';
 import { MatOptionModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,8 +38,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   providers: [
     {
-      provide: API_URL,
-      useValue: environment.api,
+      provide: SWAPI_URL,
+      useValue: environment.swapi,
     }
   ],
   bootstrap: [AppComponent]

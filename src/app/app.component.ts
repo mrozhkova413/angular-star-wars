@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { People } from './api/api.models';
+import { People } from './swapi/swapi.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { select, loadList } from './store/main-page.actions';
