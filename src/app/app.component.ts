@@ -36,7 +36,13 @@ export class AppComponent implements OnInit {
     this.store.dispatch(select({ id: id }))
   }
 
-  onKey(event: KeyboardEvent) {
-    this.store.dispatch(loadList({ section: "people", search: (event.target as HTMLInputElement).value  }));
+  onKey(value: string) {
+    this.store.dispatch(loadList({ section: "people", search: value  }));
+  }
+
+  onChange(value: string) {
+    // let value = (event.target as HTMLInputElement).value
+    console.log(value)
+    this.store.dispatch(loadList({ section: "people", search: value  }));
   }
 }
