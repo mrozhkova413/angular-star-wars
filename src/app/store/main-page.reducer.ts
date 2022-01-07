@@ -4,7 +4,6 @@ import * as MainPageActionsType from './main-page.actions';
 import { createReducer, on } from '@ngrx/store';
 import { People, Planet, ALL } from '../swapi/swapi.models';
 import { Filters } from '../swapi/filter.models';
-import { first } from 'rxjs/operators';
 
 export const initialState: MainPageState = {selected: null, list: [], filteredList:[], filters: null }
 
