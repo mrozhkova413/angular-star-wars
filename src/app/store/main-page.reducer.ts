@@ -39,8 +39,8 @@ function filterList(list: ALL[], filters: Filters): ALL[] {
   if (filters.starships) {
     let fil = filters.starships;
     return list.map(x => x as Starship).filter(
-      x => (fil.max_atmosphering_speed ? x.max_atmosphering_speed >= fil.max_atmosphering_speed : true) && 
-      (fil.passengers ? x.passengers >= fil.passengers : true)); 
+      x => ((fil.max_atmosphering_speed || x.max_atmosphering_speed !== 'n/a') ? Number(x.max_atmosphering_speed) >= fil.max_atmosphering_speed : true) && 
+      ((fil.passengers || x.passengers !== 'n/a') ? Number(x.passengers) >= fil.passengers : true)); 
   }
 
   return list;
