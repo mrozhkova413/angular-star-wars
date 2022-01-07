@@ -21,6 +21,7 @@ import { environment } from './environment/environment';
 import { mainPageReducer } from './store/main-page.reducer';
 import { MainPageEffects } from './store/main-page.effects';
 import { FilterComponent } from './components/filter/filter.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { FilterComponent } from './components/filter/filter.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     MatSelectModule,

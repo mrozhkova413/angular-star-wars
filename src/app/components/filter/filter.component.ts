@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.component';
 import { filterList } from 'src/app/store/main-page.actions';
 import { HairColor, EyesColor, Gender } from './filter.models'
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-filter',
@@ -14,13 +15,30 @@ export class FilterComponent implements OnInit {
   hairColors: HairColor[] = ['brown', 'blond', 'gray', 'black'];
   eyesColors: EyesColor[] = ['brown', 'red', 'blue', 'yellow'];
   genders: Gender[] = ['female', 'male'];
+  
+  peopleForm = this.fb.group({
+    eyesColor: [''],
+    hairColor: [''],
+    gender: ['']
+  });
 
-  constructor(private store: Store<AppState>) { }
+  constructor(
+    private store: Store<AppState>,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onFilterChange(hair: HairColor, eyes: EyesColor, gender: Gender) {
-    this.store.dispatch(filterList({ section: 'people', filters: { people: {hairColor: hair, eyesColor: eyes, gender: gender}, planets: null }}));
+  onFilterChange() {
+    let form = this.peopleForm
+    this.store.dispatch(filterList({ 
+      section: 'people', 
+      filters: { 
+        people: { 
+            hairColor: form.get('hairColor')?.value, 
+            eyesColor: form.get('eyesColor')?.value, 
+            gender: form.get('gender')?.value }, 
+        planets: null }}));
   }
 }
