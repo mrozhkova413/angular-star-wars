@@ -1,14 +1,14 @@
 <form [formGroup]="peopleForm">
   <mat-label>Hair color:</mat-label>
-  <mat-select formControlName="hairColor" #hairColorSelect (selectionChange)="onFilterChange()">
+  <mat-select formControlName="hairColor" (selectionChange)="onFilterChange()">
     <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
   </mat-select>
   <mat-label>Eyes color:</mat-label>
-  <mat-select formControlName="eyesColor" #eyesColorSelect (selectionChange)="onFilterChange()">
+  <mat-select formControlName="eyesColor" (selectionChange)="onFilterChange()">
     <mat-option *ngFor="let color of eyesColors" [value]="color">{{ color }}</mat-option>
   </mat-select>
   <mat-label>Gender:</mat-label>
-  <mat-select formControlName="gender" #genderColorSelect (selectionChange)="onFilterChange()">
+  <mat-select formControlName="gender" (selectionChange)="onFilterChange()">
     <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
   </mat-select>
 </form>
