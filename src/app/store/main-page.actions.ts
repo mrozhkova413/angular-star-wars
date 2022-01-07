@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { ALL } from '../swapi/swapi.models';
-import { Filters } from '../components/filter/filter.models';
+import { Filters } from '../swapi/filter.models';
 
 export const select = createAction('[Main Page] Select', props<{ id: string; }>());
 export const loadList = createAction('[Main Page] Load list', props<{ sections: string[]; search: string }>());

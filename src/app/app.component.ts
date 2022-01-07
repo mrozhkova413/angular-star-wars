@@ -3,6 +3,7 @@ import { ALL } from './swapi/swapi.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { select, loadList } from './store/main-page.actions';
+import { sections, Sections } from './swapi/filter.models';
 
 export interface AppState { root: MainPageState }
 
@@ -11,8 +12,6 @@ export interface MainPageState {
   list: ALL[];
   filteredList: ALL[];
 }
-
-export type Sections = 'people' | 'starships' | 'planets'
 
 @Component({
   selector: 'app-root',
@@ -24,7 +23,7 @@ export class AppComponent implements OnInit {
   selected$: Observable<ALL | null>
   filteredList$: Observable<ALL[]>
 
-  sections: Sections[] = ['people', 'starships', 'planets'];
+  sections: Sections[] = sections;
 
   constructor(private store: Store<AppState>) {
     this.selected$ = this.store.select(state => state.root.selected);

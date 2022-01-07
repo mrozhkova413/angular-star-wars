@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState, Sections } from 'src/app/app.component';
+import { AppState } from 'src/app/app.component';
 import { filterList } from 'src/app/store/main-page.actions';
-import { HairColor, EyesColor, Gender } from './filter.models'
+import { HairColor, EyesColor, Gender, eyesColors, hairColors, genders, Sections } from '../../swapi/filter.models'
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -13,11 +13,17 @@ import { FormBuilder } from '@angular/forms';
 export class FilterComponent implements OnInit {
   @Input() section: Sections;
 
-  hairColors: HairColor[] = ['brown', 'blond', 'gray', 'black'];
-  eyesColors: EyesColor[] = ['brown', 'red', 'blue', 'yellow'];
-  genders: Gender[] = ['female', 'male'];
+  hairColors: HairColor[] = hairColors;
+  eyesColors: EyesColor[] = eyesColors;
+  genders: Gender[] = genders;
   
   peopleForm = this.fb.group({
+    eyesColor: [''],
+    hairColor: [''],
+    gender: ['']
+  });
+
+  planetsForm = this.fb.group({
     eyesColor: [''],
     hairColor: [''],
     gender: ['']

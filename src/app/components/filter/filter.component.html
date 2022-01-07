@@ -15,8 +15,8 @@
   </form>
 </ng-container>
 
-<!-- <ng-container *ngIf="section === 'planets'">
-  <form [formGroup]="peopleForm">
+<ng-container *ngIf="section === 'planets'">
+  <form [formGroup]="planetsForm">
     <mat-label>Hair color:</mat-label>
     <mat-select formControlName="hairColor" (selectionChange)="onFilterChange()">
       <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
@@ -30,4 +30,4 @@
       <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
     </mat-select>
   </form>
-</ng-container> -->
+</ng-container>
