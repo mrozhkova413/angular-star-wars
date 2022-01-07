@@ -87,7 +87,7 @@ export interface Species extends Resource {
 
 export interface Planet extends Resource {
   name: string;
-  rotation_period: string;
+  rotation_period: number;
   orbital_period: string;
   diameter: string;
   climate: string;

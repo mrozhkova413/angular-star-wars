@@ -1,8 +1,9 @@
+import { climate, Climate } from './../../swapi/filter.models';
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.component';
 import { filterList } from 'src/app/store/main-page.actions';
-import { HairColor, EyesColor, Gender, eyesColors, hairColors, genders, Sections } from '../../swapi/filter.models'
+import { HairColor, EyesColor, Gender, eyesColors, hairColors, genders, Sections, terrains, Terrain } from '../../swapi/filter.models'
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -16,6 +17,9 @@ export class FilterComponent implements OnInit {
   hairColors: HairColor[] = hairColors;
   eyesColors: EyesColor[] = eyesColors;
   genders: Gender[] = genders;
+
+  terrains: Terrain[] = terrains
+  climate: Climate[] = climate
   
   peopleForm = this.fb.group({
     eyesColor: [''],
@@ -24,9 +28,9 @@ export class FilterComponent implements OnInit {
   });
 
   planetsForm = this.fb.group({
-    eyesColor: [''],
-    hairColor: [''],
-    gender: ['']
+    terrain: [''],
+    climate: [''],
+    rotation_period: ['']
   });
 
   constructor(
@@ -37,7 +41,7 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onFilterChange() {
+  onFilterPeopleChange() {
     let form = this.peopleForm
     this.store.dispatch(filterList({ 
       filters: { 
@@ -46,6 +50,18 @@ export class FilterComponent implements OnInit {
             eyesColor: form.get('eyesColor')?.value, 
             gender: form.get('gender')?.value }, 
         planets: null,
+        starships: null }}));
+  }
+
+  onFilterPlanetsChange() {
+    let form = this.planetsForm
+    this.store.dispatch(filterList({ 
+      filters: { 
+        planets: { 
+            terrain: form.get('terrain')?.value, 
+            climate: form.get('climate')?.value, 
+            rotation_period: form.get('rotation_period')?.value }, 
+        people: null,
         starships: null }}));
   }
 }

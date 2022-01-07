@@ -25,6 +25,7 @@ export interface PeopleFilters {
 export interface PlanetsFilters {
   terrain: Terrain;
   climate: Climate;
+  rotation_period: number;
 }
 
 export interface StarshipsFilters {
