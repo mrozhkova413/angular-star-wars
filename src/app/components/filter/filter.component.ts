@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.component';
+import { AppState, Sections } from 'src/app/app.component';
 import { filterList } from 'src/app/store/main-page.actions';
 import { HairColor, EyesColor, Gender } from './filter.models'
 import { FormBuilder } from '@angular/forms';
@@ -11,6 +11,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  @Input() section: Sections;
 
   hairColors: HairColor[] = ['brown', 'blond', 'gray', 'black'];
   eyesColors: EyesColor[] = ['brown', 'red', 'blue', 'yellow'];

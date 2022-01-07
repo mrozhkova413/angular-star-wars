@@ -11,8 +11,8 @@
     </mat-select>
   </mat-form-field>
 
-  <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'people'">
-    <app-filter></app-filter>
+  <ng-container *ngIf="sectionSelect?.value?.length === 1">
+    <app-filter [section]="sectionSelect.value[0]"></app-filter>
   </ng-container>
 
   <mat-list>

@@ -12,6 +12,8 @@ export interface MainPageState {
   filteredList: ALL[];
 }
 
+export type Sections = 'people' | 'starships' | 'planets'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,7 +24,7 @@ export class AppComponent implements OnInit {
   selected$: Observable<ALL | null>
   filteredList$: Observable<ALL[]>
 
-  sections: string[] = ['people', 'starships', 'planets'];
+  sections: Sections[] = ['people', 'starships', 'planets'];
 
   constructor(private store: Store<AppState>) {
     this.selected$ = this.store.select(state => state.root.selected);
