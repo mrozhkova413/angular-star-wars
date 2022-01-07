@@ -12,16 +12,7 @@
   </mat-form-field>
 
   <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'people'">
-    <mat-card>
-      <mat-label>Hair color:</mat-label>
-      <mat-select #hairColorSelect (selectionChange)="onFilterChange(hairColorSelect.value, eyesColorSelect.value)">
-        <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
-      </mat-select>
-      <mat-label>Eyes color:</mat-label>
-      <mat-select #eyesColorSelect (selectionChange)="onFilterChange(hairColorSelect.value, eyesColorSelect.value)">
-        <mat-option *ngFor="let color of eyesColors" [value]="color">{{ color }}</mat-option>
-      </mat-select>
-    </mat-card>
+    <app-filter></app-filter>
   </ng-container>
 
   <mat-list>

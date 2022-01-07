@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-label>Hair color:</mat-label>
+  <mat-select #hairColorSelect (selectionChange)="onFilterChange(hairColorSelect.value, eyesColorSelect.value, genderColorSelect.value)">
+    <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
+  </mat-select>
+  <mat-label>Eyes color:</mat-label>
+  <mat-select #eyesColorSelect (selectionChange)="onFilterChange(hairColorSelect.value, eyesColorSelect.value, genderColorSelect.value)">
+    <mat-option *ngFor="let color of eyesColors" [value]="color">{{ color }}</mat-option>
+  </mat-select>
+  <mat-label>Gender:</mat-label>
+  <mat-select #genderColorSelect (selectionChange)="onFilterChange(hairColorSelect.value, eyesColorSelect.value, genderColorSelect.value)">
+    <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
+  </mat-select>
+</mat-card>

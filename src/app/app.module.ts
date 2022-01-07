@@ -20,10 +20,12 @@ import { SWAPI_URL } from './app.config';
 import { environment } from './environment/environment';
 import { mainPageReducer } from './store/main-page.reducer';
 import { MainPageEffects } from './store/main-page.effects';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,8 +13,12 @@ export const mainPageReducer = createReducer(
   on(MainPageActionsType.loadListSuccess,
     (state, { list }) => ({...state, list: list, filteredList: list})),
   on(MainPageActionsType.filterList,
-    (state, { hairColor, eyesColor }) => {
-      let filteredList = state.list.map(x => x as People).filter(x => x.hair_color === hairColor && x.eye_color === eyesColor)
+    (state, { section, filters }) => {
+      let filteredList = state.list.map(x => x as People)
+         .filter(
+           x => x.hair_color === filters.people?.hairColor && 
+           x.eye_color === filters.people?.eyesColor && 
+           x.gender === filters.people?.gender)
       return ({...state, filteredList: filteredList });
     })
 );
