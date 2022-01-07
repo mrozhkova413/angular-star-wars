@@ -9,6 +9,7 @@ export interface AppState { root: MainPageState }
 export interface MainPageState {
   selected: ALL | null;
   list: ALL[];
+  filteredList: ALL[];
 }
 
 @Component({
@@ -19,15 +20,15 @@ export interface MainPageState {
 export class AppComponent implements OnInit {
   title = 'angular-star-wars';
   selected$: Observable<ALL | null>
-  list$: Observable<ALL[]>
+  filteredList$: Observable<ALL[]>
 
   sections: string[] = ['people', 'starships', 'planets'];
-  hairColors: string[] = ['brown', 'blonde', 'gray', 'black'];
+  hairColors: string[] = ['brown', 'blond', 'gray', 'black'];
   eyesColors: string[] = ['brown', 'red', 'blue', 'yellow'];
 
   constructor(private store: Store<AppState>) {
     this.selected$ = this.store.select(state => state.root.selected);
-    this.list$ = this.store.select(state => state.root.list);
+    this.filteredList$ = this.store.select(state => state.root.filteredList);
   }
 
   ngOnInit(): void {
