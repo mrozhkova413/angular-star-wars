@@ -23,7 +23,7 @@
   <mat-card *ngIf="(selected$ | async) as item">
     <p>{{ item.url }}<br/>{{ item.created }}</p>
     <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'people'">
-      <p>{{ $any(item).eye_color }}<br/>{{ $any(item).hair_color }}</p>
+      <p>{{ $any(item).eye_color }}<br/>{{ $any(item).hair_color }}<br/>{{ $any(item).name }}</p>
     </ng-container>
   </mat-card>
 </mat-card>
