@@ -58,9 +58,9 @@ export interface Starship extends Resource {
   manufacturer: string;
   cost_in_credits: string;
   length: string;
-  max_atmosphering_speed: string;
+  max_atmosphering_speed: number;
   crew: string;
-  passengers: string;
+  passengers: number;
   cargo_capacity: string;
   consumables: string;
   hyperdrive_rating: string;

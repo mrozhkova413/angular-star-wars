@@ -28,5 +28,8 @@
     <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'planets'">
       <p>{{ $any(item).terrain }}<br/>{{ $any(item).climate }}<br/>{{ $any(item).rotation_period }}</p>
     </ng-container>
+    <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'starships'">
+      <p>{{ $any(item).max_atmosphering_speed }}<br/>{{ $any(item).passengers }}</p>
+    </ng-container>
   </mat-card>
 </mat-card>

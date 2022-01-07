@@ -1,3 +1,5 @@
+import { NumberValueAccessor } from '@angular/forms';
+
 export const eyesColors = ['brown', 'red', 'blue', 'yellow'];
 export type EyesColor = typeof eyesColors[number];
 
@@ -29,6 +31,8 @@ export interface PlanetsFilters {
 }
 
 export interface StarshipsFilters {
+  max_atmosphering_speed: number;
+  passengers: number;
 }
 
 export interface Filters {

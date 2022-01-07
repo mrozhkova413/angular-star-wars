@@ -33,6 +33,11 @@ export class FilterComponent implements OnInit {
     rotation_period: ['']
   });
 
+  starshipsForm = this.fb.group({
+    max_atmosphering_speed: [''],
+    passengers: ['']
+  });
+
   constructor(
     private store: Store<AppState>,
     private fb: FormBuilder
@@ -63,5 +68,17 @@ export class FilterComponent implements OnInit {
             rotation_period: form.get('rotation_period')?.value }, 
         people: null,
         starships: null }}));
+  }
+
+  onFilterStarshipsChange() {
+    let form = this.starshipsForm
+    this.store.dispatch(filterList({ 
+      filters: { 
+        starships: { 
+            max_atmosphering_speed: form.get('max_atmosphering_speed')?.value, 
+            passengers: form.get('passengers')?.value
+        },
+        people: null,
+        planets: null }}));
   }
 }

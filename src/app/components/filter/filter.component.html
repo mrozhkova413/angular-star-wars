@@ -29,3 +29,12 @@
     <input matInput placeholder="12" formControlName="rotation_period" (keyup)="onFilterPlanetsChange()">
   </form>
 </ng-container>
+
+<ng-container *ngIf="section === 'starships'">
+  <form [formGroup]="starshipsForm">
+    <mat-label>Max atmosphering speed:</mat-label>
+    <input matInput placeholder="12" formControlName="max_atmosphering_speed" (keyup)="onFilterStarshipsChange()">
+    <mat-label>Passengers:</mat-label>
+    <input matInput placeholder="12" formControlName="passengers" (keyup)="onFilterStarshipsChange()">
+  </form>
+</ng-container>
