@@ -40,12 +40,12 @@ export class FilterComponent implements OnInit {
   onFilterChange() {
     let form = this.peopleForm
     this.store.dispatch(filterList({ 
-      section: 'people', 
       filters: { 
         people: { 
             hairColor: form.get('hairColor')?.value, 
             eyesColor: form.get('eyesColor')?.value, 
             gender: form.get('gender')?.value }, 
-        planets: null }}));
+        planets: null,
+        starships: null }}));
   }
 }

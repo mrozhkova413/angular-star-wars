@@ -1,6 +1,3 @@
-export type Terrain = 'desert' | 'grasslands' | 'mountains' | 'rainforests';
-export type Climate = 'temperate' | 'frozen' | 'murky';
-
 export const eyesColors = ['brown', 'red', 'blue', 'yellow'];
 export type EyesColor = typeof eyesColors[number];
 
@@ -11,7 +8,13 @@ export const genders = ['female', 'male'];
 export type Gender = typeof genders[number];
 
 export const sections = ['people', 'starships', 'planets'];
-export type Sections = typeof sections[number]
+export type Sections = typeof sections[number];
+
+export const terrains = ['desert', 'grasslands', 'mountains', 'rainforests'];
+export type Terrain = typeof terrains[number];
+
+export const climate = ['temperate', 'frozen', 'murky'];
+export type Climate = typeof climate[number]
 
 export interface PeopleFilters {
   eyesColor: EyesColor;
@@ -19,12 +22,16 @@ export interface PeopleFilters {
   gender: Gender;
 }
 
-export interface PlanetFilters {
+export interface PlanetsFilters {
   terrain: Terrain;
   climate: Climate;
 }
 
+export interface StarshipsFilters {
+}
+
 export interface Filters {
-  planets: PlanetFilters | null;
+  planets: PlanetsFilters | null;
   people: PeopleFilters | null;
+  starships: StarshipsFilters | null;
 }

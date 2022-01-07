@@ -3,7 +3,7 @@ import { ALL } from './swapi/swapi.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { select, loadList } from './store/main-page.actions';
-import { sections, Sections } from './swapi/filter.models';
+import { sections, Sections, Filters } from './swapi/filter.models';
 
 export interface AppState { root: MainPageState }
 
@@ -11,6 +11,7 @@ export interface MainPageState {
   selected: ALL | null;
   list: ALL[];
   filteredList: ALL[];
+  filters: Filters | null;
 }
 
 @Component({
