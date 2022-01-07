@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -33,6 +34,7 @@ import { MainPageEffects } from './store/main-page.effects';
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
+    MatCardModule,
     StoreModule.forRoot({
       root: mainPageReducer
     }),

@@ -1,18 +1,25 @@
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>Search:</mat-label>
-  <input matInput placeholder="Search" #appinput (keyup)="onChange(appselect.value, appinput.value)">
-</mat-form-field>
+<mat-card>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search:</mat-label>
+    <input matInput placeholder="Search" #appinput (keyup)="onChange(appselect.value, appinput.value)">
+  </mat-form-field>
 
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>Section:</mat-label>
-  <mat-select multiple #appselect (selectionChange)="onChange(appselect.value, appinput.value)">
-    <mat-option *ngFor="let section of sections" [value]="section">{{ section }}</mat-option>
-  </mat-select>
-</mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Section:</mat-label>
+    <mat-select multiple #appselect (selectionChange)="onChange(appselect.value, appinput.value)">
+      <mat-option *ngFor="let section of sections" [value]="section">{{ section }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-<div *ngFor="let item of (list$ | async); let i = index;" (click)="selectCharacter(i)">
-  {{ item.url }}
-</div>
-<div *ngIf="(selected$ | async) as item">
-  <p>{{ item.url }}<br/>{{ item.created }}</p>
-</div>
+  <ng-container *ngIf="appselect?.value?.length === 1 && appselect.value[0] === 'people'">
+  </ng-container>
+
+  <mat-list>
+    <mat-list-item *ngFor="let item of (list$ | async); let i = index;" (click)="selectCharacter(i)">
+      {{ item.url }}
+    </mat-list-item>
+  </mat-list>
+  <mat-card *ngIf="(selected$ | async) as item">
+    <p>{{ item.url }}<br/>{{ item.created }}</p>
+  </mat-card>
+</mat-card>
