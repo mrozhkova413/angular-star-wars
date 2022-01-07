@@ -11,7 +11,6 @@ export type ResourceUrl = string;
 
 export interface Resource {
   url: ResourceUrl;
-  id: string;
   created: string;
   edited: string;
 };
