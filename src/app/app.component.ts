@@ -35,12 +35,12 @@ export class AppComponent implements OnInit {
     this.store.dispatch(loadList({ sections: this.sections, search: '' }));
   }
 
-  selectCharacter(id: number) {
+  selectCharacter(id: string) {
     this.store.dispatch(select({ id: id }))
   }
 
   onChange(sections: string[], search: string) {
-    this.store.dispatch(loadList({ sections: sections ? sections : this.sections, search: search  }));
+    this.store.dispatch(loadList({ sections: sections || this.sections, search: search  }));
   }
 
   onFilterChange(hair: string, eyes: string) {

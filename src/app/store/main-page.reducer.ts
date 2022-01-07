@@ -9,7 +9,7 @@ export const initialState: MainPageState = {selected: null, list: [], filteredLi
 export const mainPageReducer = createReducer(
   initialState,
   on(MainPageActionsType.select,
-    (state, { id }) =>({...state, selected: state.list[id]})),
+    (state, { id }) =>({...state, selected: state.list.find(x => x.url === id) || null })),
   on(MainPageActionsType.loadListSuccess,
     (state, { list }) => ({...state, list: list, filteredList: list})),
   on(MainPageActionsType.filterList,
