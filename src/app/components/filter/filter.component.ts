@@ -48,9 +48,9 @@ export class FilterComponent implements OnInit {
       this.store.dispatch(filterList({
         filters: {
           people: {
-              hairColor: formValues.hairColor.value,
-              eyesColor: formValues.eyesColor.value,
-              gender: formValues.gender.value },
+              hairColor: formValues.hairColor,
+              eyesColor: formValues.eyesColor,
+              gender: formValues.gender },
           planets: null,
           starships: null }}));
 
@@ -60,9 +60,9 @@ export class FilterComponent implements OnInit {
       this.store.dispatch(filterList({
         filters: {
           planets: {
-              terrain: formValues.terrain.value,
-              climate: formValues.climate.value,
-              rotation_period: formValues.rotation_period.value },
+              terrain: formValues.terrain,
+              climate: formValues.climate,
+              rotation_period: formValues.rotation_period },
           people: null,
           starships: null }}));
     });
@@ -71,8 +71,8 @@ export class FilterComponent implements OnInit {
       this.store.dispatch(filterList({
         filters: {
           starships: {
-              max_atmosphering_speed: formValues.max_atmosphering_speed.value,
-              passengers: formValues.passengers.value
+              max_atmosphering_speed: formValues.max_atmosphering_speed,
+              passengers: formValues.passengers
           },
           people: null,
           planets: null }}));
