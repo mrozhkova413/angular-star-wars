@@ -11,6 +11,18 @@
   justify-content: space-between;
 }
 
+#generic-filters {
+  display: flex;
+
+  app-sections-select {
+    width: 60%;
+  }
+
+  app-search {
+    width: 35%;
+  }
+}
+
 .card {
   margin-bottom: 1rem;
   max-width: 50rem;

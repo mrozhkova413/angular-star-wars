@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="card" id="generic-filters">
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Search:</mat-label>
     <input matInput placeholder="Search" #searchInput (keyup)="onChange(sectionSelect.value, searchInput.value)">
@@ -12,16 +12,16 @@
   </mat-form-field>
 
   <app-filter *ngIf="sectionSelect?.value?.length === 1" [section]="sectionSelect.value[0]"></app-filter>
+</mat-card>
 
-  <mat-card class="card" id="main-container">
-    <mat-list>
-      <mat-list-item *ngFor="let item of (filteredList$ | async)" (click)="selectCharacter(item.url)">
-        {{ item.name }}
-      </mat-list-item>
-    </mat-list>
+<mat-card class="card" id="main-container">
+  <mat-list>
+    <mat-list-item *ngFor="let item of (filteredList$ | async)" (click)="selectCharacter(item.url)">
+      {{ item.name }}
+    </mat-list-item>
+  </mat-list>
 
-    <ng-container *ngIf="(selected$ | async) as selected">
-      <app-selected-item [selectedItem]="selected"></app-selected-item>
-    </ng-container>
-  </mat-card>
+  <ng-container *ngIf="(selected$ | async) as selected">
+    <app-selected-item [selectedItem]="selected"></app-selected-item>
+  </ng-container>
 </mat-card>
