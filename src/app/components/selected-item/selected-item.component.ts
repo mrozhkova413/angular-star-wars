@@ -5,7 +5,7 @@ import { Sections } from 'src/app/swapi/filter.models';
 @Component({
   selector: 'app-selected-item',
   templateUrl: './selected-item.component.html',
-  styleUrls: ['./selected-item.component.css',],
+  styleUrls: ['./selected-item.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectedItemComponent {

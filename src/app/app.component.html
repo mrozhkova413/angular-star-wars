@@ -10,8 +10,10 @@
       <mat-option *ngFor="let section of sections" [value]="section">{{ section }}</mat-option>
     </mat-select>
   </mat-form-field>
+</mat-card>
 
-  <app-filter *ngIf="sectionSelect?.value?.length === 1" [section]="sectionSelect.value[0]"></app-filter>
+<mat-card class="card" *ngIf="sectionSelect?.value?.length === 1">
+  <app-filter [section]="sectionSelect.value[0]"></app-filter>
 </mat-card>
 
 <mat-card class="card" id="main-container">
