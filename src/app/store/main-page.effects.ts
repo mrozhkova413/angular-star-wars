@@ -1,4 +1,4 @@
-import { loadList, loadListSuccess, selectSection } from './main-page.actions';
+import { loadList, loadListSuccess } from './main-page.actions';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, switchMap } from 'rxjs/operators';

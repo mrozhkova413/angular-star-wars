@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ALL } from './swapi/swapi.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { select, loadList, selectSection } from './store/main-page.actions';
+import { select, loadList } from './store/main-page.actions';
 import { sections, Sections, Filters } from './swapi/filter.models';
 
 export interface AppState { root: MainPageState }
@@ -12,7 +12,6 @@ export interface MainPageState {
   list: ALL[];
   filteredList: ALL[];
   filters: Filters | null;
-  selectedSections: Sections[];
 }
 
 @Component({
@@ -41,7 +40,6 @@ export class AppComponent implements OnInit {
   }
 
   onChange(sections: Sections[], search: string) {
-    this.store.dispatch(selectSection({ sections: sections }))
     this.store.dispatch(loadList({ sections: sections.length ? sections : this.sections, search: search  }));
   }
 }
