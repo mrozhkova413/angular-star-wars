@@ -14,8 +14,11 @@ export class MainPageEffects {
     ofType(loadList),
     switchMap((action) => combineLatest(
       action.sections.map(section => this.apiService.getList(section, action.search)))
-  )).pipe(
-        map(list => loadListSuccess( { list: list.reduce((accumulator, value) => accumulator.concat(value.results), [] as ALL[]) }))
+    )).pipe(
+        map(list => {
+          console.log(list);
+          let result = list.reduce((accumulator, value) => accumulator.concat(value.results), [] as ALL[]);
+          return loadListSuccess( { list: result }); })
       )
     );
 
