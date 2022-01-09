@@ -23,6 +23,8 @@ import { MainPageEffects } from './store/main-page.effects';
 import { FilterComponent } from './components/filter/filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectedItemComponent } from './components/selected-item/selected-item.component';
+import { SwapiService } from './swapi/swapi.service';
+import { MockSwapiService } from './swapi/mock-swapi.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,10 @@ import { SelectedItemComponent } from './components/selected-item/selected-item.
     {
       provide: SWAPI_URL,
       useValue: environment.swapi,
+    },
+    {
+      provide: SwapiService,
+      useClass: environment.mocked ? MockSwapiService : SwapiService
     }
   ],
   bootstrap: [AppComponent]

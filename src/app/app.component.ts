@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     this.store.dispatch(select({ id: id }))
   }
 
-  onChange(sections: string[], search: string) {
+  onChange(sections: Sections[], search: string) {
     this.store.dispatch(loadList({ sections: sections.length ? sections : this.sections, search: search  }));
   }
 }
