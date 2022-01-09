@@ -12,7 +12,7 @@ export const mainPageReducer = createReducer(
   on(MainPageActionsType.select,
     (state, { id }) =>({...state, selected: state.list.find(x => x.url === id) || null })),
   on(MainPageActionsType.selectSection,
-      (state, { sections }) =>({...state, selectedSections: sections })),
+      (state, { sections }) =>({...state, selectedSections: sections, filters: null })),
   on(MainPageActionsType.loadListSuccess,
     (state, { list }) => ({...state, list: list, filteredList: state.filters ? filterList(list, state.filters) : list })),
   on(MainPageActionsType.filterList,
