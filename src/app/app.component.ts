@@ -40,6 +40,6 @@ export class AppComponent implements OnInit {
   }
 
   onChange(sections: Sections[], search: string) {
-    this.store.dispatch(loadList({ sections: sections.length ? sections : this.sections, search: search  }));
+    this.store.dispatch(loadList({ sections: (sections && sections.length) ? sections : this.sections, search: search  }));
   }
 }
