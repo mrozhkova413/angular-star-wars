@@ -18,7 +18,7 @@ export interface Resource {
 export interface PagedResults<T> {
   count: number;
   next?: string;
-  previous: string;
+  previous: string | null;
   results: T[];
 };
 

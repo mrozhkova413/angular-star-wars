@@ -17,7 +17,6 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SWAPI_URL } from './app.config';
-import { environment } from './environment/environment';
 import { mainPageReducer } from './store/main-page.reducer';
 import { MainPageEffects } from './store/main-page.effects';
 import { FilterComponent } from './components/filter/filter.component';
@@ -25,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectedItemComponent } from './components/selected-item/selected-item.component';
 import { SwapiService } from './swapi/swapi.service';
 import { MockSwapiService } from './swapi/mock-swapi.service';
+import { environment } from './environment/environment';
 
 @NgModule({
   declarations: [
