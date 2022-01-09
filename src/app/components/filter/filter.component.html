@@ -1,36 +1,36 @@
 <ng-container [ngSwitch]="section">
   <form *ngSwitchCase="'people'" [formGroup]="peopleForm">
     <mat-label>Hair color:</mat-label>
-    <mat-select formControlName="hairColor" (selectionChange)="onFilterPeopleChange()">
+    <mat-select formControlName="hairColor">
       <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
     </mat-select>
     <mat-label>Eyes color:</mat-label>
-    <mat-select formControlName="eyesColor" (selectionChange)="onFilterPeopleChange()">
+    <mat-select formControlName="eyesColor">
       <mat-option *ngFor="let color of eyesColors" [value]="color">{{ color }}</mat-option>
     </mat-select>
     <mat-label>Gender:</mat-label>
-    <mat-select formControlName="gender" (selectionChange)="onFilterPeopleChange()">
+    <mat-select formControlName="gender">
       <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
     </mat-select>
   </form>
 
   <form *ngSwitchCase="'planets'" [formGroup]="planetsForm">
     <mat-label>Terrain:</mat-label>
-    <mat-select formControlName="terrain" (selectionChange)="onFilterPlanetsChange()">
+    <mat-select formControlName="terrain">
       <mat-option *ngFor="let ter of terrains" [value]="ter">{{ ter }}</mat-option>
     </mat-select>
     <mat-label>Climate:</mat-label>
-    <mat-select formControlName="climate" (selectionChange)="onFilterPlanetsChange()">
+    <mat-select formControlName="climate">
       <mat-option *ngFor="let cli of climate" [value]="cli">{{ cli }}</mat-option>
     </mat-select>
     <mat-label>Rotation period:</mat-label>
-    <input matInput placeholder="12" formControlName="rotation_period" (keyup)="onFilterPlanetsChange()">
+    <input matInput placeholder="12" formControlName="rotation_period">
   </form>
 
   <form *ngSwitchCase="'starships'" [formGroup]="starshipsForm">
     <mat-label>Max atmosphering speed:</mat-label>
-    <input matInput placeholder="12" formControlName="max_atmosphering_speed" (keyup)="onFilterStarshipsChange()">
+    <input matInput placeholder="12" formControlName="max_atmosphering_speed">
     <mat-label>Passengers:</mat-label>
-    <input matInput placeholder="12" formControlName="passengers" (keyup)="onFilterStarshipsChange()">
+    <input matInput placeholder="12" formControlName="passengers">
   </form>
 </ng-container>

@@ -20,7 +20,7 @@ export class FilterComponent implements OnInit {
 
   terrains: Terrain[] = terrains
   climate: Climate[] = climate
-  
+
   peopleForm = this.fb.group({
     eyesColor: [''],
     hairColor: [''],
@@ -44,41 +44,38 @@ export class FilterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  }
+    this.peopleForm.valueChanges.subscribe(formValues => {
+      this.store.dispatch(filterList({
+        filters: {
+          people: {
+              hairColor: formValues.hairColor.value,
+              eyesColor: formValues.eyesColor.value,
+              gender: formValues.gender.value },
+          planets: null,
+          starships: null }}));
 
-  onFilterPeopleChange() {
-    let form = this.peopleForm
-    this.store.dispatch(filterList({ 
-      filters: { 
-        people: { 
-            hairColor: form.get('hairColor')?.value, 
-            eyesColor: form.get('eyesColor')?.value, 
-            gender: form.get('gender')?.value }, 
-        planets: null,
-        starships: null }}));
-  }
+    });
 
-  onFilterPlanetsChange() {
-    let form = this.planetsForm
-    this.store.dispatch(filterList({ 
-      filters: { 
-        planets: { 
-            terrain: form.get('terrain')?.value, 
-            climate: form.get('climate')?.value, 
-            rotation_period: form.get('rotation_period')?.value }, 
-        people: null,
-        starships: null }}));
-  }
+    this.planetsForm.valueChanges.subscribe(formValues => {
+      this.store.dispatch(filterList({
+        filters: {
+          planets: {
+              terrain: formValues.terrain.value,
+              climate: formValues.climate.value,
+              rotation_period: formValues.rotation_period.value },
+          people: null,
+          starships: null }}));
+    });
 
-  onFilterStarshipsChange() {
-    let form = this.starshipsForm
-    this.store.dispatch(filterList({ 
-      filters: { 
-        starships: { 
-            max_atmosphering_speed: form.get('max_atmosphering_speed')?.value, 
-            passengers: form.get('passengers')?.value
-        },
-        people: null,
-        planets: null }}));
+    this.starshipsForm.valueChanges.subscribe(formValues => {
+      this.store.dispatch(filterList({
+        filters: {
+          starships: {
+              max_atmosphering_speed: formValues.max_atmosphering_speed.value,
+              passengers: formValues.passengers.value
+          },
+          people: null,
+          planets: null }}));
+    });
   }
 }
