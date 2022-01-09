@@ -1,40 +1,34 @@
-<ng-container *ngIf="section === 'people'">
-  <form [formGroup]="peopleForm">
-    <mat-label>Hair color:</mat-label>
-    <mat-select formControlName="hairColor" (selectionChange)="onFilterPeopleChange()">
-      <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
-    </mat-select>
-    <mat-label>Eyes color:</mat-label>
-    <mat-select formControlName="eyesColor" (selectionChange)="onFilterPeopleChange()">
-      <mat-option *ngFor="let color of eyesColors" [value]="color">{{ color }}</mat-option>
-    </mat-select>
-    <mat-label>Gender:</mat-label>
-    <mat-select formControlName="gender" (selectionChange)="onFilterPeopleChange()">
-      <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
-    </mat-select>
-  </form>
-</ng-container>
+<form *ngIf="section === 'people'" [formGroup]="peopleForm">
+  <mat-label>Hair color:</mat-label>
+  <mat-select formControlName="hairColor" (selectionChange)="onFilterPeopleChange()">
+    <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
+  </mat-select>
+  <mat-label>Eyes color:</mat-label>
+  <mat-select formControlName="eyesColor" (selectionChange)="onFilterPeopleChange()">
+    <mat-option *ngFor="let color of eyesColors" [value]="color">{{ color }}</mat-option>
+  </mat-select>
+  <mat-label>Gender:</mat-label>
+  <mat-select formControlName="gender" (selectionChange)="onFilterPeopleChange()">
+    <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
+  </mat-select>
+</form>
 
-<ng-container *ngIf="section === 'planets'">
-  <form [formGroup]="planetsForm">
-    <mat-label>Terrain:</mat-label>
-    <mat-select formControlName="terrain" (selectionChange)="onFilterPlanetsChange()">
-      <mat-option *ngFor="let ter of terrains" [value]="ter">{{ ter }}</mat-option>
-    </mat-select>
-    <mat-label>Climate:</mat-label>
-    <mat-select formControlName="climate" (selectionChange)="onFilterPlanetsChange()">
-      <mat-option *ngFor="let cli of climate" [value]="cli">{{ cli }}</mat-option>
-    </mat-select>
-    <mat-label>Rotation period:</mat-label>
-    <input matInput placeholder="12" formControlName="rotation_period" (keyup)="onFilterPlanetsChange()">
-  </form>
-</ng-container>
+<form *ngIf="section === 'planets'" [formGroup]="planetsForm">
+  <mat-label>Terrain:</mat-label>
+  <mat-select formControlName="terrain" (selectionChange)="onFilterPlanetsChange()">
+    <mat-option *ngFor="let ter of terrains" [value]="ter">{{ ter }}</mat-option>
+  </mat-select>
+  <mat-label>Climate:</mat-label>
+  <mat-select formControlName="climate" (selectionChange)="onFilterPlanetsChange()">
+    <mat-option *ngFor="let cli of climate" [value]="cli">{{ cli }}</mat-option>
+  </mat-select>
+  <mat-label>Rotation period:</mat-label>
+  <input matInput placeholder="12" formControlName="rotation_period" (keyup)="onFilterPlanetsChange()">
+</form>
 
-<ng-container *ngIf="section === 'starships'">
-  <form [formGroup]="starshipsForm">
-    <mat-label>Max atmosphering speed:</mat-label>
-    <input matInput placeholder="12" formControlName="max_atmosphering_speed" (keyup)="onFilterStarshipsChange()">
-    <mat-label>Passengers:</mat-label>
-    <input matInput placeholder="12" formControlName="passengers" (keyup)="onFilterStarshipsChange()">
-  </form>
-</ng-container>
+<form *ngIf="section === 'starships'" [formGroup]="starshipsForm">
+  <mat-label>Max atmosphering speed:</mat-label>
+  <input matInput placeholder="12" formControlName="max_atmosphering_speed" (keyup)="onFilterStarshipsChange()">
+  <mat-label>Passengers:</mat-label>
+  <input matInput placeholder="12" formControlName="passengers" (keyup)="onFilterStarshipsChange()">
+</form>

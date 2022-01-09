@@ -22,11 +22,13 @@ import { mainPageReducer } from './store/main-page.reducer';
 import { MainPageEffects } from './store/main-page.effects';
 import { FilterComponent } from './components/filter/filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SelectedItemComponent } from './components/selected-item/selected-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
+    SelectedItemComponent,
   ],
   imports: [
     BrowserModule,

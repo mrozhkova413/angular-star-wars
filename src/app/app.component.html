@@ -11,15 +11,14 @@
     </mat-select>
   </mat-form-field>
 
-  <ng-container *ngIf="sectionSelect?.value?.length === 1">
-    <app-filter [section]="sectionSelect.value[0]"></app-filter>
-  </ng-container>
+  <app-filter *ngIf="sectionSelect?.value?.length === 1" [section]="sectionSelect.value[0]"></app-filter>
 
   <mat-list>
     <mat-list-item *ngFor="let item of (filteredList$ | async)" (click)="selectCharacter(item.url)">
       {{ item.url }}
     </mat-list-item>
   </mat-list>
+
   <mat-card *ngIf="(selected$ | async) as item">
     <p>{{ item.url }}<br/>{{ item.created }}</p>
     <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'people'">
