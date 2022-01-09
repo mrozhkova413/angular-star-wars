@@ -13,6 +13,7 @@ export interface Resource {
   url: ResourceUrl;
   created: string;
   edited: string;
+  type?: ResourceType;
 };
 
 export interface PagedResults<T> {

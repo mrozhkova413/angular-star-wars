@@ -19,7 +19,7 @@
     </mat-list-item>
   </mat-list>
 
-  <mat-card *ngIf="(selected$ | async) as item">
+  <!-- <mat-card *ngIf="(selected$ | async) as item">
     <p>{{ item.url }}<br/>{{ item.created }}</p>
     <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'people'">
       <p>{{ $any(item).eye_color }}<br/>{{ $any(item).hair_color }}<br/>{{ $any(item).name }}<br/>{{ $any(item).gender }}</p>
@@ -30,5 +30,7 @@
     <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'starships'">
       <p>{{ $any(item).max_atmosphering_speed }}<br/>{{ $any(item).passengers }}</p>
     </ng-container>
-  </mat-card>
+  </mat-card> -->
+
+  <app-selected-item [selectedItem]="selected$ | async"></app-selected-item>
 </mat-card>

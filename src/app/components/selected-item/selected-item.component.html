@@ -1,0 +1,23 @@
+<ng-template #people let-people>
+  <p>{{ people.eye_color }}<br/>{{ people.hair_color }}<br/>{{ people.name }}<br/>{{ people.gender }}</p>
+</ng-template>
+
+<mat-card *ngIf="(selectedItem) as item">
+  <p>{{ item.url }}<br/>{{ item.created }}<br/>{{ item.constructor.name }}</p>
+  <ng-container *ngIf='isPeople(item)'>
+  <ng-container *ngTemplateOutlet="people; context: { $implicit: item }" ></ng-container>
+  </ng-container>
+</mat-card>
+
+<!-- <mat-card *ngIf="(selectedItem) as item">
+  <p>{{ item.url }}<br/>{{ item.created }}</p>
+  <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'people'">
+    <p>{{ $any(item).eye_color }}<br/>{{ $any(item).hair_color }}<br/>{{ $any(item).name }}<br/>{{ $any(item).gender }}</p>
+  </ng-container>
+  <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'planets'">
+    <p>{{ $any(item).terrain }}<br/>{{ $any(item).climate }}<br/>{{ $any(item).rotation_period }}</p>
+  </ng-container>
+  <ng-container *ngIf="sectionSelect?.value?.length === 1 && sectionSelect.value[0] === 'starships'">
+    <p>{{ $any(item).max_atmosphering_speed }}<br/>{{ $any(item).passengers }}</p>
+  </ng-container>
+</mat-card> -->
