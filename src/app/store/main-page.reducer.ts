@@ -5,12 +5,14 @@ import { createReducer, on } from '@ngrx/store';
 import { People, Planet, ALL, Starship } from '../swapi/swapi.models';
 import { Filters } from '../swapi/filter.models';
 
-export const initialState: MainPageState = {selected: null, list: [], filteredList:[], filters: null }
+export const initialState: MainPageState = {selected: null, list: [], filteredList:[], filters: null, selectedSections: [] }
 
 export const mainPageReducer = createReducer(
   initialState,
   on(MainPageActionsType.select,
     (state, { id }) =>({...state, selected: state.list.find(x => x.url === id) || null })),
+  on(MainPageActionsType.selectSection,
+      (state, { sections }) =>({...state, selectedSections: sections })),
   on(MainPageActionsType.loadListSuccess,
     (state, { list }) => ({...state, list: list, filteredList: state.filters ? filterList(list, state.filters) : list })),
   on(MainPageActionsType.filterList,
