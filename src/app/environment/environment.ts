@@ -5,7 +5,7 @@ import { IEnvironment } from './environment.interface';
 
 export const environment: IEnvironment = {
   production: false,
-  mocked: true,
+  mocked: false,
   swapi: 'https://swapi.dev/api',
 };
 
