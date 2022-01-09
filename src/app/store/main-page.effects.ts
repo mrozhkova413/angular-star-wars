@@ -16,7 +16,6 @@ export class MainPageEffects {
       action.sections.map(section => this.apiService.getList(section, action.search)))
     )).pipe(
         map(list => {
-          console.log(list);
           let result = list.reduce((accumulator, value) => accumulator.concat(value.results), [] as ALL[]);
           return loadListSuccess( { list: result }); })
       )

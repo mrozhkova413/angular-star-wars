@@ -10,8 +10,9 @@
   <p>{{ starship.max_atmosphering_speed }}<br/>{{ starship.passengers }}</p>
 </ng-template>
 
-<mat-card>
-  <p>{{ selectedItem.url }}<br/>{{ selectedItem.created }}</p>
+<mat-card matRipple>
+  <p>{{ selectedItem.created | date}}</p>
+  <img [src]="imageUrl" [alt]="selectedItem.url">
   <ng-container [ngSwitch]="section">
     <ng-container *ngSwitchCase="'people'">
       <ng-container *ngTemplateOutlet="people; context: { $implicit: selectedItem }" ></ng-container>
