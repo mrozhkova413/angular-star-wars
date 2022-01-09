@@ -1,18 +1,17 @@
 <ng-template #people let-person>
-  <p>{{ person.eye_color }}<br/>{{ person.hair_color }}<br/>{{ person.name }}<br/>{{ person.gender }}</p>
+  <p>Eye color: {{ person.eye_color }}<br/>Hair color: {{ person.hair_color }}<br/>Gender: {{ person.gender }}</p>
 </ng-template>
 
 <ng-template #planets let-planet>
-  <p>{{ planet.terrain }}<br/>{{ planet.climate }}<br/>{{ planet.rotation_period }}</p>
+  <p>Terrain: {{ planet.terrain }}<br/>Climate: {{ planet.climate }}<br/>Rotation period: {{ planet.rotation_period }}</p>
 </ng-template>
 
 <ng-template #starships let-starship>
-  <p>{{ starship.max_atmosphering_speed }}<br/>{{ starship.passengers }}</p>
+  <p>Max atmosphering speed: {{ starship.max_atmosphering_speed }}<br/>Passengers: {{ starship.passengers }}</p>
 </ng-template>
 
 <mat-card matRipple>
-  <p>{{ selectedItem.created | date}}</p>
-  <img [src]="imageUrl" [alt]="selectedItem.url">
+  <img [src]="imageUrl" [alt]="selectedItem.name">
   <ng-container [ngSwitch]="section">
     <ng-container *ngSwitchCase="'people'">
       <ng-container *ngTemplateOutlet="people; context: { $implicit: selectedItem }" ></ng-container>
