@@ -1,3 +1,23 @@
+<mat-card matRipple>
+  <img [src]="imageUrl" [alt]="selectedItem.name" onerror="this.style.display='none'">
+
+  <ng-container [ngSwitch]="section">
+
+    <ng-container *ngSwitchCase="'people'">
+      <ng-container *ngTemplateOutlet="people; context: { $implicit: selectedItem }" ></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'planets'">
+      <ng-container *ngTemplateOutlet="planets; context: { $implicit: selectedItem }" ></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'starships'">
+      <ng-container *ngTemplateOutlet="starships; context: { $implicit: selectedItem }" ></ng-container>
+    </ng-container>
+
+  </ng-container>
+</mat-card>
+
 <ng-template #people let-person>
   <p>Eye color: {{ person.eye_color | unknown }}<br/>Hair color: {{ person.hair_color | unknown }}<br/>Gender: {{ person.gender | unknown }}</p>
 </ng-template>
@@ -9,19 +29,3 @@
 <ng-template #starships let-starship>
   <p>Max atmosphering speed: {{ starship.max_atmosphering_speed | unknown }}<br/>Passengers: {{ starship.passengers | unknown }}</p>
 </ng-template>
-
-<mat-card matRipple>
-  <img [src]="imageUrl" [alt]="selectedItem.name" onerror="this.style.display='none'">
-
-  <ng-container [ngSwitch]="section">
-    <ng-container *ngSwitchCase="'people'">
-      <ng-container *ngTemplateOutlet="people; context: { $implicit: selectedItem }" ></ng-container>
-    </ng-container>
-    <ng-container *ngSwitchCase="'planets'">
-      <ng-container *ngTemplateOutlet="planets; context: { $implicit: selectedItem }" ></ng-container>
-    </ng-container>
-    <ng-container *ngSwitchCase="'starships'">
-      <ng-container *ngTemplateOutlet="starships; context: { $implicit: selectedItem }" ></ng-container>
-    </ng-container>
-  </ng-container>
-</mat-card>
