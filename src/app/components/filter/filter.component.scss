@@ -1,6 +1,7 @@
 form {
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
 }
 
 mat-form-field {
