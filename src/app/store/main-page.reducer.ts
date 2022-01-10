@@ -25,8 +25,8 @@ function filterList(list: ALL[], filters: Filters): ALL[] {
   if (filters.people) {
     let fil = filters.people;
     return list.map(x => x as People).filter(
-      x => (fil.hairColor ? x.hair_color === fil.hairColor : true) &&
-      (fil.eyesColor ? x.eye_color === fil.eyesColor : true) &&
+      x => (fil.hairColor ? x.hair_color.includes(fil.hairColor) : true) &&
+      (fil.eyesColor ? x.eye_color.includes(fil.eyesColor) : true) &&
       (fil.gender ? x.gender === fil.gender : true));
   }
 
@@ -34,7 +34,7 @@ function filterList(list: ALL[], filters: Filters): ALL[] {
     let fil = filters.planets;
     return list.map(x => x as Planet).filter(
       x => (fil.terrain ? x.terrain.includes(fil.terrain) : true) &&
-      (fil.climate ? x.climate === fil.climate : true) &&
+      (fil.climate ? x.climate.includes(fil.climate) : true) &&
       (fil.rotation_period ? x.rotation_period >= fil.rotation_period : true));
   }
 
