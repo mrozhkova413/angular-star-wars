@@ -1,13 +1,13 @@
 <ng-template #people let-person>
-  <p>Eye color: {{ person.eye_color }}<br/>Hair color: {{ person.hair_color }}<br/>Gender: {{ person.gender }}</p>
+  <p>Eye color: {{ person.eye_color | unknown }}<br/>Hair color: {{ person.hair_color | unknown }}<br/>Gender: {{ person.gender | unknown }}</p>
 </ng-template>
 
 <ng-template #planets let-planet>
-  <p>Terrain: {{ planet.terrain }}<br/>Climate: {{ planet.climate }}<br/>Rotation period: {{ planet.rotation_period }}</p>
+  <p>Terrain: {{ planet.terrain | unknown }}<br/>Climate: {{ planet.climate | unknown }}<br/>Rotation period: {{ planet.rotation_period | unknown }}</p>
 </ng-template>
 
 <ng-template #starships let-starship>
-  <p>Max atmosphering speed: {{ starship.max_atmosphering_speed }}<br/>Passengers: {{ starship.passengers }}</p>
+  <p>Max atmosphering speed: {{ starship.max_atmosphering_speed | unknown }}<br/>Passengers: {{ starship.passengers | unknown }}</p>
 </ng-template>
 
 <mat-card matRipple>
