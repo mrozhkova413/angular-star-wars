@@ -1,5 +1,5 @@
 <mat-card matRipple>
-  <img [src]="imageUrl" [alt]="selectedItem.name">
+  <img [src]="imageUrl" [alt]="selectedItem.name" onerror="this.src='/assets/logo.png';">
 
   <ng-container [ngSwitch]="section">
 

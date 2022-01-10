@@ -24,7 +24,6 @@ export class FilterComponent implements OnInit, OnDestroy {
   climate: Climate[] = climate
 
   form: FormGroup
-
   destructionNotifier = new Subject()
 
   constructor(
