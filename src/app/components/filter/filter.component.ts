@@ -1,17 +1,19 @@
 import { climate, Climate } from './../../swapi/filter.models';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.component';
 import { filterList } from 'src/app/store/main-page.actions';
 import { HairColor, EyesColor, Gender, eyesColors, hairColors, genders, Sections, terrains, Terrain } from '../../swapi/filter.models'
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss']
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent implements OnInit, OnDestroy {
   @Input() section: Sections;
 
   hairColors: HairColor[] = hairColors;
@@ -23,10 +25,17 @@ export class FilterComponent implements OnInit {
 
   form: FormGroup
 
+  destructionNotifier = new Subject()
+
   constructor(
     private store: Store<AppState>,
     private fb: FormBuilder
   ) { }
+
+  ngOnDestroy(): void {
+    this.destructionNotifier.next();
+    this.destructionNotifier.complete();
+  }
 
   ngOnInit(): void {
     switch (this.section) {
@@ -37,7 +46,9 @@ export class FilterComponent implements OnInit {
           gender: ['']
         });
 
-        this.form.valueChanges.subscribe(formValues => {
+        this.form.valueChanges.pipe(
+            takeUntil(this.destructionNotifier)
+          ).subscribe(formValues => {
           this.store.dispatch(filterList({
             filters: {
               people: {
@@ -57,7 +68,9 @@ export class FilterComponent implements OnInit {
           rotation_period: ['']
         });
 
-        this.form.valueChanges.subscribe(formValues => {
+        this.form.valueChanges.pipe(
+          takeUntil(this.destructionNotifier)
+        ).subscribe(formValues => {
           this.store.dispatch(filterList({
             filters: {
               planets: {
@@ -75,7 +88,9 @@ export class FilterComponent implements OnInit {
           passengers: ['']
         });
 
-        this.form.valueChanges.subscribe(formValues => {
+        this.form.valueChanges.pipe(
+          takeUntil(this.destructionNotifier)
+        ).subscribe(formValues => {
           this.store.dispatch(filterList({
             filters: {
               starships: {
