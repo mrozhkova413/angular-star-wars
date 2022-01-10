@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ALL } from './swapi/swapi.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { select, loadList } from './store/main-page.actions';
+import { loadList } from './store/main-page.actions';
 import { sections, Sections, Filters } from './swapi/filter.models';
 
 export interface AppState { root: MainPageState }
