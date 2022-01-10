@@ -15,7 +15,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SWAPI_URL } from './app.config';
 import { mainPageReducer } from './store/main-page.reducer';
@@ -38,7 +37,6 @@ import { ItemsListComponent } from './components/items-list/items-list.component
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     HttpClientModule,
     MatSelectModule,
     MatOptionModule,

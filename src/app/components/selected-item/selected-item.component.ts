@@ -1,12 +1,11 @@
 import { ALL } from './../../swapi/swapi.models';
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Sections } from 'src/app/swapi/filter.models';
 
 @Component({
   selector: 'app-selected-item',
   templateUrl: './selected-item.component.html',
-  styleUrls: ['./selected-item.component.scss',],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./selected-item.component.scss',]
 })
 export class SelectedItemComponent {
   @Input() selectedItem: ALL;

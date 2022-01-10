@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
 import { ALL, PagedResults } from './swapi.models';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { SWAPI_URL } from '../app.config';
 import { Sections } from './filter.models';
 
