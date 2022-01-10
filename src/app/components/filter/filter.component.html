@@ -1,36 +1,57 @@
 <ng-container [ngSwitch]="section">
   <form *ngSwitchCase="'people'" [formGroup]="form">
-    <mat-label>Eyes color:</mat-label>
-    <mat-select formControlName="eyesColor">
-      <mat-option *ngFor="let color of eyesColors" [value]="color">{{ color }}</mat-option>
-    </mat-select>
-    <mat-label>Hair color:</mat-label>
-    <mat-select formControlName="hairColor">
-      <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
-    </mat-select>
-    <mat-label>Gender:</mat-label>
-    <mat-select formControlName="gender">
-      <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
-    </mat-select>
+    <mat-form-field>
+      <mat-label>Eyes color:</mat-label>
+      <mat-select formControlName="eyesColor">
+        <mat-option *ngFor="let color of eyesColors" [value]="color">{{ color }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Hair color:</mat-label>
+      <mat-select formControlName="hairColor">
+        <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Gender:</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </form>
 
   <form *ngSwitchCase="'planets'" [formGroup]="form">
-    <mat-label>Terrain:</mat-label>
-    <mat-select formControlName="terrain">
-      <mat-option *ngFor="let ter of terrains" [value]="ter">{{ ter }}</mat-option>
-    </mat-select>
-    <mat-label>Climate:</mat-label>
-    <mat-select formControlName="climate">
-      <mat-option *ngFor="let cli of climate" [value]="cli">{{ cli }}</mat-option>
-    </mat-select>
-    <mat-label>Rotation period:</mat-label>
-    <input matInput placeholder="12" formControlName="rotation_period">
+    <mat-form-field>
+      <mat-label>Terrain:</mat-label>
+      <mat-select formControlName="terrain">
+        <mat-option *ngFor="let ter of terrains" [value]="ter">{{ ter }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Climate:</mat-label>
+      <mat-select formControlName="climate">
+        <mat-option *ngFor="let cli of climate" [value]="cli">{{ cli }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Rotation period:</mat-label>
+      <input matInput placeholder="12" formControlName="rotation_period">
+    </mat-form-field>
   </form>
 
   <form *ngSwitchCase="'starships'" [formGroup]="form">
-    <mat-label>Max atmosphering speed:</mat-label>
-    <input matInput placeholder="12" formControlName="max_atmosphering_speed">
-    <mat-label>Passengers:</mat-label>
-    <input matInput placeholder="12" formControlName="passengers">
+    <mat-form-field>
+      <mat-label>Max atmosphering speed:</mat-label>
+      <input matInput placeholder="650" formControlName="max_atmosphering_speed">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Passengers:</mat-label>
+      <input matInput placeholder="12" formControlName="passengers">
+    </mat-form-field>
   </form>
 </ng-container>
