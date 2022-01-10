@@ -35,10 +35,6 @@ export class AppComponent implements OnInit {
     this.store.dispatch(loadList({ sections: this.sections, search: '' }));
   }
 
-  selectCharacter(id: string) {
-    this.store.dispatch(select({ id: id }))
-  }
-
   onChange(sections: Sections[], search: string) {
     this.store.dispatch(loadList({ sections: (sections && sections.length) ? sections : this.sections, search: search  }));
   }
