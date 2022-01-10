@@ -11,7 +11,8 @@
 </ng-template>
 
 <mat-card matRipple>
-  <img [src]="imageUrl" [alt]="selectedItem.name">
+  <img [src]="imageUrl" [alt]="selectedItem.name" onerror="this.style.display='none'">
+
   <ng-container [ngSwitch]="section">
     <ng-container *ngSwitchCase="'people'">
       <ng-container *ngTemplateOutlet="people; context: { $implicit: selectedItem }" ></ng-container>
