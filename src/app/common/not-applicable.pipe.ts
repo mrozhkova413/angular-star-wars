@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'unknown'
+    name: 'not_applicable'
 })
-export class UnknownPipe implements PipeTransform {
+export class NotApplicablePipe implements PipeTransform {
   transform(value: string | null, args?: any): string | null {
     if (value === 'n/a')
       return 'not applicable';
