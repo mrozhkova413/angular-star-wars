@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.component';
 import { filterList } from 'src/app/store/main-page.actions';
 import { HairColor, EyesColor, Gender, eyesColors, hairColors, genders, Sections, terrains, Terrain } from '../../swapi/filter.models'
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-filter',
@@ -21,22 +21,7 @@ export class FilterComponent implements OnInit {
   terrains: Terrain[] = terrains
   climate: Climate[] = climate
 
-  peopleForm = this.fb.group({
-    eyesColor: [''],
-    hairColor: [''],
-    gender: ['']
-  });
-
-  planetsForm = this.fb.group({
-    terrain: [''],
-    climate: [''],
-    rotation_period: ['']
-  });
-
-  starshipsForm = this.fb.group({
-    max_atmosphering_speed: [''],
-    passengers: ['']
-  });
+  form: FormGroup
 
   constructor(
     private store: Store<AppState>,
@@ -44,38 +29,63 @@ export class FilterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.peopleForm.valueChanges.subscribe(formValues => {
-      this.store.dispatch(filterList({
-        filters: {
-          people: {
-              hairColor: formValues.hairColor,
-              eyesColor: formValues.eyesColor,
-              gender: formValues.gender },
-          planets: null,
-          starships: null }}));
+    switch (this.section) {
+      case 'people':
+        this.form =  this.fb.group({
+          eyesColor: [''],
+          hairColor: [''],
+          gender: ['']
+        });
 
-    });
+        this.form.valueChanges.subscribe(formValues => {
+          this.store.dispatch(filterList({
+            filters: {
+              people: {
+                  hairColor: formValues.hairColor,
+                  eyesColor: formValues.eyesColor,
+                  gender: formValues.gender },
+              planets: null,
+              starships: null }}));
 
-    this.planetsForm.valueChanges.subscribe(formValues => {
-      this.store.dispatch(filterList({
-        filters: {
-          planets: {
-              terrain: formValues.terrain,
-              climate: formValues.climate,
-              rotation_period: formValues.rotation_period },
-          people: null,
-          starships: null }}));
-    });
+        });
+        break;
 
-    this.starshipsForm.valueChanges.subscribe(formValues => {
-      this.store.dispatch(filterList({
-        filters: {
-          starships: {
-              max_atmosphering_speed: formValues.max_atmosphering_speed,
-              passengers: formValues.passengers
-          },
-          people: null,
-          planets: null }}));
-    });
+      case 'planets':
+        this.form =  this.fb.group({
+          terrain: [''],
+          climate: [''],
+          rotation_period: ['']
+        });
+
+        this.form.valueChanges.subscribe(formValues => {
+          this.store.dispatch(filterList({
+            filters: {
+              planets: {
+                  terrain: formValues.terrain,
+                  climate: formValues.climate,
+                  rotation_period: formValues.rotation_period },
+              people: null,
+              starships: null }}));
+        });
+        break;
+
+      case 'starships':
+        this.form = this.fb.group({
+          max_atmosphering_speed: [''],
+          passengers: ['']
+        });
+
+        this.form.valueChanges.subscribe(formValues => {
+          this.store.dispatch(filterList({
+            filters: {
+              starships: {
+                  max_atmosphering_speed: formValues.max_atmosphering_speed,
+                  passengers: formValues.passengers
+              },
+              people: null,
+              planets: null }}));
+        });
+        break;
+    }
   }
 }

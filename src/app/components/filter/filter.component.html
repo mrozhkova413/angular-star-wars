@@ -1,12 +1,12 @@
 <ng-container [ngSwitch]="section">
-  <form *ngSwitchCase="'people'" [formGroup]="peopleForm">
-    <mat-label>Hair color:</mat-label>
-    <mat-select formControlName="hairColor">
-      <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
-    </mat-select>
+  <form *ngSwitchCase="'people'" [formGroup]="form">
     <mat-label>Eyes color:</mat-label>
     <mat-select formControlName="eyesColor">
       <mat-option *ngFor="let color of eyesColors" [value]="color">{{ color }}</mat-option>
+    </mat-select>
+    <mat-label>Hair color:</mat-label>
+    <mat-select formControlName="hairColor">
+      <mat-option *ngFor="let color of hairColors" [value]="color">{{ color }}</mat-option>
     </mat-select>
     <mat-label>Gender:</mat-label>
     <mat-select formControlName="gender">
@@ -14,7 +14,7 @@
     </mat-select>
   </form>
 
-  <form *ngSwitchCase="'planets'" [formGroup]="planetsForm">
+  <form *ngSwitchCase="'planets'" [formGroup]="form">
     <mat-label>Terrain:</mat-label>
     <mat-select formControlName="terrain">
       <mat-option *ngFor="let ter of terrains" [value]="ter">{{ ter }}</mat-option>
@@ -27,7 +27,7 @@
     <input matInput placeholder="12" formControlName="rotation_period">
   </form>
 
-  <form *ngSwitchCase="'starships'" [formGroup]="starshipsForm">
+  <form *ngSwitchCase="'starships'" [formGroup]="form">
     <mat-label>Max atmosphering speed:</mat-label>
     <input matInput placeholder="12" formControlName="max_atmosphering_speed">
     <mat-label>Passengers:</mat-label>
