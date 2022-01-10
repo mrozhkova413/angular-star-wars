@@ -1,5 +1,5 @@
 <mat-list>
-  <mat-list-item matRipple *ngFor="let item of items; trackBy: trackItem" (click)="selectItem(item.url)">
+  <mat-list-item appHoverBold matRipple *ngFor="let item of items; trackBy: trackItem" (click)="selectItem(item.url)">
     {{ item.name }}
   </mat-list-item>
 </mat-list>

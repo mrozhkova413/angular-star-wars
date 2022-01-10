@@ -26,6 +26,7 @@ import { SwapiService } from './swapi/swapi.service';
 import { MockSwapiService } from './swapi/mock-swapi.service';
 import { environment } from './environment/environment';
 import { ItemsListComponent } from './components/items-list/items-list.component';
+import { HoverBoldDirective } from './common/hover-bold.directive';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ItemsListComponent } from './components/items-list/items-list.component
     SelectedItemComponent,
     ItemsListComponent,
     NotApplicablePipe,
+    HoverBoldDirective,
   ],
   imports: [
     BrowserModule,

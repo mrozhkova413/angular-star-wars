@@ -7,7 +7,7 @@
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Section:</mat-label>
     <mat-select multiple #sectionSelect (selectionChange)="onChange(sectionSelect.value, searchInput.value)">
-      <mat-option *ngFor="let section of sections" [value]="section">{{ section }}</mat-option>
+      <mat-option appHoverBold *ngFor="let section of sections" [value]="section">{{ section }}</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-card>
