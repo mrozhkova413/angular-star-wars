@@ -1,6 +1,8 @@
+import { StoreModule } from '@ngrx/store';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemsListComponent } from './items-list.component';
+import { mainPageReducer } from 'src/app/store/main-page.reducer';
 
 describe('ItemsListComponent', () => {
   let component: ItemsListComponent;
@@ -8,7 +10,10 @@ describe('ItemsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemsListComponent ]
+      declarations: [ ItemsListComponent ],
+      imports: [
+        StoreModule.forRoot({ root: mainPageReducer}),
+      ],
     })
     .compileComponents();
   });
