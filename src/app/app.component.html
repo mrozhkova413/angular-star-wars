@@ -18,7 +18,7 @@
 
 <mat-card class="card" id="main-container">
   <ng-container *ngIf="(filteredList$ | async) as items">
-    <app-items-list [items]="items"></app-items-list>
+    <app-items-list [items]="items" (selectedItemEvent)="selectItem($id)"></app-items-list>
   </ng-container>
 
   <ng-container *ngIf="(selected$ | async) as selected">

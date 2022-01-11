@@ -1,8 +1,5 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.component';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { ALL } from 'src/app/swapi/swapi.models';
-import { select } from 'src/app/store/main-page.actions';
 
 @Component({
   selector: 'app-items-list',
@@ -12,11 +9,12 @@ import { select } from 'src/app/store/main-page.actions';
 })
 export class ItemsListComponent {
   @Input() items: ALL[];
+  @Output() selectedItemEvent = new EventEmitter<string>();
 
-  constructor(private store: Store<AppState>) { }
+  constructor() { }
 
-  selectItem(url: string) {
-    this.store.dispatch(select({ id: url }))
+  selectItem(id: string) {
+    this.selectedItemEvent.emit(id);
   }
 
   trackItem(index: number, item: any) {

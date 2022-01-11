@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ALL } from './swapi/swapi.models';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { loadList } from './store/main-page.actions';
+import { loadList, select } from './store/main-page.actions';
 import { sections, Sections, Filters } from './swapi/filter.models';
 
 export interface AppState { root: MainPageState }
@@ -37,5 +37,9 @@ export class AppComponent implements OnInit {
 
   onChange(sections: Sections[], search: string) {
     this.store.dispatch(loadList({ sections: (sections && sections.length) ? sections : this.sections, search: search  }));
+  }
+
+  selectItem(id: string) {
+    this.store.dispatch(select({ id: id }))
   }
 }
