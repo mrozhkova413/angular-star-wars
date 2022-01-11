@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HoverBoldDirective } from './hover-bold.directive';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
+import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 @Component({
@@ -16,8 +16,7 @@ describe('HoverBoldDirective', () => {
 
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-      declarations: [ AboutComponent, HoverBoldDirective ],
-      schemas:      [ CUSTOM_ELEMENTS_SCHEMA ]
+      declarations: [ AboutComponent, HoverBoldDirective ]
     })
     .createComponent(AboutComponent);
     fixture.detectChanges();
