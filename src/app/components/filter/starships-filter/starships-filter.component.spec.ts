@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StarshipsFilterComponent } from './starships-filter.component';
+// import { StarshipsFilterComponent } from './starships-filter.component';
 
-describe('StarshipsFilterComponent', () => {
-  let component: StarshipsFilterComponent;
-  let fixture: ComponentFixture<StarshipsFilterComponent>;
+// describe('StarshipsFilterComponent', () => {
+//   let component: StarshipsFilterComponent;
+//   let fixture: ComponentFixture<StarshipsFilterComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ StarshipsFilterComponent ]
-    })
-    .compileComponents();
-  });
+//   beforeEach(async () => {
+//     await TestBed.configureTestingModule({
+//       declarations: [ StarshipsFilterComponent ]
+//     })
+//     .compileComponents();
+//   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(StarshipsFilterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(StarshipsFilterComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
