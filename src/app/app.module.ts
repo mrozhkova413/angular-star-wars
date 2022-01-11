@@ -1,4 +1,4 @@
-import { NotApplicablePipe } from './common/not-applicable.pipe';
+import { NotApplicablePipe } from './common/not-applicable/not-applicable.pipe';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +25,7 @@ import { SwapiService } from './swapi/swapi.service';
 import { MockSwapiService } from './swapi/mock-swapi.service';
 import { environment } from './environment/environment';
 import { ItemsListComponent } from './components/items-list/items-list.component';
-import { HoverBoldDirective } from './common/hover-bold.directive';
+import { HoverBoldDirective } from './common/hover-bold/hover-bold.directive';
 import { PeopleFilterComponent } from './components/filter/people-filter/people-filter.component';
 import { PlanetsFilterComponent } from './components/filter/planets-filter/planets-filter.component';
 import { StarshipsFilterComponent } from './components/filter/starships-filter/starships-filter.component';
