@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Terrain:</mat-label>
+        <mat-select formControlName="terrain">
+        <mat-option *ngFor="let ter of context.terrains" [value]="ter">{{ ter | not_applicable  }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Climate:</mat-label>
+        <mat-select formControlName="climate">
+        <mat-option *ngFor="let cli of context.climate" [value]="cli">{{ cli | not_applicable  }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Rotation period:</mat-label>
+        <input matInput placeholder="12" formControlName="rotation_period">
+    </mat-form-field>
+</form>

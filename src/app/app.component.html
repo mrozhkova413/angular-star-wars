@@ -13,12 +13,14 @@
 </mat-card>
 
 <mat-card class="card" *ngIf="sectionSelect?.value?.length === 1">
-  <app-filter [section]="sectionSelect.value[0]"></app-filter>
+  <app-people-filter *ngIf="sectionSelect.value[0] === 'people'"></app-people-filter>
+  <app-planets-filter *ngIf="sectionSelect.value[0] === 'planets'"></app-planets-filter>
+  <app-starships-filter *ngIf="sectionSelect.value[0] === 'starships'"></app-starships-filter>
 </mat-card>
 
 <mat-card class="card" id="main-container">
   <ng-container *ngIf="(filteredList$ | async) as items">
-    <app-items-list [items]="items" (selectedItemEvent)="selectItem($id)"></app-items-list>
+    <app-items-list [items]="items" (selectedItemEvent)="selectItem($event)"></app-items-list>
   </ng-container>
 
   <ng-container *ngIf="(selected$ | async) as selected">

@@ -20,22 +20,26 @@ import { AppComponent } from './app.component';
 import { SWAPI_URL } from './app.config';
 import { mainPageReducer } from './store/main-page.reducer';
 import { MainPageEffects } from './store/main-page.effects';
-import { FilterComponent } from './components/filter/filter.component';
 import { SelectedItemComponent } from './components/selected-item/selected-item.component';
 import { SwapiService } from './swapi/swapi.service';
 import { MockSwapiService } from './swapi/mock-swapi.service';
 import { environment } from './environment/environment';
 import { ItemsListComponent } from './components/items-list/items-list.component';
 import { HoverBoldDirective } from './common/hover-bold.directive';
+import { PeopleFilterComponent } from './components/filter/people-filter/people-filter.component';
+import { PlanetsFilterComponent } from './components/filter/planets-filter/planets-filter.component';
+import { StarshipsFilterComponent } from './components/filter/starships-filter/starships-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilterComponent,
     SelectedItemComponent,
     ItemsListComponent,
     NotApplicablePipe,
     HoverBoldDirective,
+    PeopleFilterComponent,
+    PlanetsFilterComponent,
+    StarshipsFilterComponent,
   ],
   imports: [
     BrowserModule,

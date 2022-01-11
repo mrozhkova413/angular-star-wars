@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Eyes color:</mat-label>
+        <mat-select formControlName="eyesColor">
+        <mat-option *ngFor="let color of context.eyesColors" [value]="color">{{ color | not_applicable  }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Hair color:</mat-label>
+        <mat-select formControlName="hairColor">
+        <mat-option *ngFor="let color of context.hairColors" [value]="color">{{ color | not_applicable  }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Gender:</mat-label>
+        <mat-select formControlName="gender">
+        <mat-option *ngFor="let gender of context.genders" [value]="gender">{{ gender | not_applicable  }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
