@@ -1,5 +1,5 @@
 import { ALL } from './../../swapi/swapi.models';
-import { Component, Input, ChangeDetectionStrategy, TemplateRef, ViewChildren, AfterContentChecked, QueryList } from '@angular/core';
+import { Component, Input, TemplateRef, ViewChildren, AfterContentChecked, QueryList } from '@angular/core';
 import { Sections } from 'src/app/swapi/filter.models';
 import { TemplateIdDirective } from 'src/app/common/template-id/template-id.directive';
 
@@ -7,7 +7,6 @@ import { TemplateIdDirective } from 'src/app/common/template-id/template-id.dire
   selector: 'app-selected-item',
   templateUrl: './selected-item.component.html',
   styleUrls: ['./selected-item.component.scss',],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectedItemComponent implements AfterContentChecked {
   @Input() selectedItem: ALL;
