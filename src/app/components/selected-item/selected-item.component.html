@@ -1,21 +1,7 @@
 <mat-card matRipple>
   <img [src]="imageUrl" [alt]="selectedItem.name" onerror="this.src='/assets/logo.png';">
   <h3>{{ selectedItem.name }}</h3>
-  <ng-container [ngSwitch]="section">
-
-    <ng-container *ngSwitchCase="'people'">
-      <ng-container *ngTemplateOutlet="people; context: { $implicit: selectedItem }" ></ng-container>
-    </ng-container>
-
-    <ng-container *ngSwitchCase="'planets'">
-      <ng-container *ngTemplateOutlet="planets; context: { $implicit: selectedItem }" ></ng-container>
-    </ng-container>
-
-    <ng-container *ngSwitchCase="'starships'">
-      <ng-container *ngTemplateOutlet="starships; context: { $implicit: selectedItem }" ></ng-container>
-    </ng-container>
-
-  </ng-container>
+  <ng-container *ngTemplateOutlet="getTemplate(); context: { $implicit: selectedItem }" ></ng-container>
 </mat-card>
 
 <ng-template #people let-person>

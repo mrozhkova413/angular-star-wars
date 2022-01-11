@@ -1,5 +1,5 @@
 import { ALL } from './../../swapi/swapi.models';
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
 import { Sections } from 'src/app/swapi/filter.models';
 
 @Component({
@@ -10,6 +10,24 @@ import { Sections } from 'src/app/swapi/filter.models';
 })
 export class SelectedItemComponent {
   @Input() selectedItem: ALL;
+
+  @ViewChild('people')
+  public peopleTemplate: TemplateRef<any>;
+
+  @ViewChild('planets')
+  public planetsTemplate: TemplateRef<any>;
+
+  @ViewChild('starships')
+  public starshipsTemplate: TemplateRef<any>;
+
+  getTemplate(): TemplateRef<any> { 
+    switch(this.section) {
+      case 'people': return this.peopleTemplate;
+      case 'planets': return this.planetsTemplate;
+      case 'starships': return this.starshipsTemplate;
+      default: throw new Error("Nonexistent section");
+    }
+  } 
 
   public get imageUrl(): string {
     const splitted = this.selectedItem.url.split('/');
