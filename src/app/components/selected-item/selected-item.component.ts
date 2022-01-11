@@ -18,6 +18,10 @@ export class SelectedItemComponent implements AfterContentChecked {
   public template: TemplateRef<any> | null;
 
   ngAfterContentChecked(): void {
+    this.setTemplate();
+  }
+
+  private setTemplate() {
     this.template = this.templatesContainer?.toArray().find(x => x.templateId === this.section )?.template || null;
   }
 

@@ -1,7 +1,7 @@
 <mat-card matRipple>
   <img [src]="imageUrl" [alt]="selectedItem.name" onerror="this.src='/assets/logo.png';">
   <h3>{{ selectedItem.name }}</h3>
-  <ng-container *ngTemplateOutlet="template; context: { $implicit: selectedItem }" ></ng-container>
+  <ng-container #container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ $implicit: selectedItem }" ></ng-container>
 </mat-card>
 
 <ng-template template-id="people" let-person>
