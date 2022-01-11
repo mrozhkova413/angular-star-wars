@@ -4,14 +4,14 @@
   <ng-container *ngTemplateOutlet="template; context: { $implicit: selectedItem }" ></ng-container>
 </mat-card>
 
-<ng-template #people let-person>
+<ng-template template-id="people" let-person>
   <p>Eye color: {{ person.eye_color | not_applicable }}<br/>Hair color: {{ person.hair_color | not_applicable }}<br/>Gender: {{ person.gender | not_applicable }}</p>
 </ng-template>
 
-<ng-template #planets let-planet>
+<ng-template template-id="planets" let-planet>
   <p>Terrain: {{ planet.terrain | not_applicable }}<br/>Climate: {{ planet.climate | not_applicable }}<br/>Rotation period: {{ planet.rotation_period | not_applicable }}</p>
 </ng-template>
 
-<ng-template #starships let-starship>
+<ng-template template-id="starships" let-starship>
   <p>Max atmosphering speed: {{ starship.max_atmosphering_speed | not_applicable }}<br/>Passengers: {{ starship.passengers | not_applicable }}</p>
 </ng-template>

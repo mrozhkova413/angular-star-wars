@@ -1,6 +1,7 @@
 import { ALL } from './../../swapi/swapi.models';
-import { Component, Input, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, TemplateRef, ViewChildren, AfterContentChecked, QueryList } from '@angular/core';
 import { Sections } from 'src/app/swapi/filter.models';
+import { TemplateIdDirective } from 'src/app/common/template-id/template-id.directive';
 
 @Component({
   selector: 'app-selected-item',
@@ -8,26 +9,17 @@ import { Sections } from 'src/app/swapi/filter.models';
   styleUrls: ['./selected-item.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SelectedItemComponent {
+export class SelectedItemComponent implements AfterContentChecked {
   @Input() selectedItem: ALL;
 
-  @ViewChild('people')
-  private peopleTemplate: TemplateRef<any>;
+  @ViewChildren(TemplateIdDirective)
+  private templatesContainer: QueryList<TemplateIdDirective>;
 
-  @ViewChild('planets')
-  private planetsTemplate: TemplateRef<any>;
+  public template: TemplateRef<any> | null;
 
-  @ViewChild('starships')
-  private starshipsTemplate: TemplateRef<any>;
-
-  public get template(): TemplateRef<any> { 
-    switch(this.section) {
-      case 'people': return this.peopleTemplate;
-      case 'planets': return this.planetsTemplate;
-      case 'starships': return this.starshipsTemplate;
-      default: throw new Error("Nonexistent section");
-    }
-  } 
+  ngAfterContentChecked(): void {
+    this.template = this.templatesContainer?.toArray().find(x => x.templateId === this.section )?.template || null;
+  }
 
   public get imageUrl(): string {
     const splitted = this.selectedItem.url.split('/');

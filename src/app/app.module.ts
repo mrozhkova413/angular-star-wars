@@ -29,6 +29,7 @@ import { HoverBoldDirective } from './common/hover-bold/hover-bold.directive';
 import { PeopleFilterComponent } from './components/filter/people-filter/people-filter.component';
 import { PlanetsFilterComponent } from './components/filter/planets-filter/planets-filter.component';
 import { StarshipsFilterComponent } from './components/filter/starships-filter/starships-filter.component';
+import { TemplateIdDirective } from './common/template-id/template-id.directive';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { StarshipsFilterComponent } from './components/filter/starships-filter/s
     ItemsListComponent,
     NotApplicablePipe,
     HoverBoldDirective,
+    TemplateIdDirective,
     PeopleFilterComponent,
     PlanetsFilterComponent,
     StarshipsFilterComponent,
