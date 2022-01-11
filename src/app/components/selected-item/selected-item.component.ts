@@ -1,5 +1,5 @@
 import { ALL } from './../../swapi/swapi.models';
-import { Component, Input, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewChildren } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
 import { Sections } from 'src/app/swapi/filter.models';
 
 @Component({
