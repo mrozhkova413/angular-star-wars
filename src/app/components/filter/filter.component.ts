@@ -13,10 +13,9 @@ import { Subject } from 'rxjs';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit, OnDestroy {
+
   @Input() section: Sections;
-
   context: Object;
-
   form: FormGroup
   destructionNotifier = new Subject()
 
