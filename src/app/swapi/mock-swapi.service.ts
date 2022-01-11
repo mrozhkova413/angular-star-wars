@@ -10,10 +10,10 @@ import { people, planets, starships } from './example-objects';
 export class MockSwapiService {
   getList(section: Sections, search: string | null): Observable<PagedResults<ALL>> {
     switch(section) {
-      case 'people': return of(people)
-      case 'planets': return of(planets)
-      case 'starships': return of(starships)
-      default: throw new Error("Nonexistent section")
+      case 'people': return of(people);
+      case 'planets': return of(planets);
+      case 'starships': return of(starships);
+      default: throw new Error("Nonexistent section");
     }
   }
 }
