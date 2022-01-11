@@ -1,5 +1,5 @@
 import { ALL } from './../../swapi/swapi.models';
-import { Component, Input, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, ViewChild, TemplateRef, ViewChildren } from '@angular/core';
 import { Sections } from 'src/app/swapi/filter.models';
 
 @Component({
@@ -12,15 +12,15 @@ export class SelectedItemComponent {
   @Input() selectedItem: ALL;
 
   @ViewChild('people')
-  public peopleTemplate: TemplateRef<any>;
+  private peopleTemplate: TemplateRef<any>;
 
   @ViewChild('planets')
-  public planetsTemplate: TemplateRef<any>;
+  private planetsTemplate: TemplateRef<any>;
 
   @ViewChild('starships')
-  public starshipsTemplate: TemplateRef<any>;
+  private starshipsTemplate: TemplateRef<any>;
 
-  getTemplate(): TemplateRef<any> { 
+  public get template(): TemplateRef<any> { 
     switch(this.section) {
       case 'people': return this.peopleTemplate;
       case 'planets': return this.planetsTemplate;
