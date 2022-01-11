@@ -1,9 +1,8 @@
-import { climate, Climate } from './../../swapi/filter.models';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.component';
 import { filterList } from 'src/app/store/main-page.actions';
-import { HairColor, EyesColor, Gender, eyesColors, hairColors, genders, Sections, terrains, Terrain } from '../../swapi/filter.models'
+import { eyesColors, hairColors, genders, Sections, terrains, climate } from '../../swapi/filter.models'
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -16,12 +15,7 @@ import { Subject } from 'rxjs';
 export class FilterComponent implements OnInit, OnDestroy {
   @Input() section: Sections;
 
-  hairColors: HairColor[] = hairColors;
-  eyesColors: EyesColor[] = eyesColors;
-  genders: Gender[] = genders;
-
-  terrains: Terrain[] = terrains
-  climate: Climate[] = climate
+  context: Object;
 
   form: FormGroup
   destructionNotifier = new Subject()
@@ -39,7 +33,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     switch (this.section) {
       case 'people':
-        this.form =  this.fb.group({
+        this.form = this.fb.group({
           eyesColor: [''],
           hairColor: [''],
           gender: ['']
@@ -58,10 +52,16 @@ export class FilterComponent implements OnInit, OnDestroy {
               starships: null }}));
 
         });
+
+        this.context = {
+          hairColors: hairColors,
+          eyesColors: eyesColors,
+          genders: genders
+        }
         break;
 
       case 'planets':
-        this.form =  this.fb.group({
+        this.form = this.fb.group({
           terrain: [''],
           climate: [''],
           rotation_period: ['']
@@ -79,6 +79,11 @@ export class FilterComponent implements OnInit, OnDestroy {
               people: null,
               starships: null }}));
         });
+
+        this.context = {
+          terrains: terrains,
+          climate: climate
+        };
         break;
 
       case 'starships':
@@ -99,6 +104,8 @@ export class FilterComponent implements OnInit, OnDestroy {
               people: null,
               planets: null }}));
         });
+
+        this.context = {}
         break;
     }
   }
