@@ -1,4 +1,4 @@
-import { NotApplicablePipe } from "./not-applicable/not-applicable.pipe";
+import { NotApplicablePipe } from "./not-applicable.pipe";
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
