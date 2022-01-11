@@ -9,7 +9,7 @@ describe('HoverBoldDirective', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [
-        { provide: ElementRef, useClass: MockElementRef }
+        // { provide: ElementRef, useClass: MockElementRef }
       ]
     }).compileComponents();
     elRef = TestBed.get(ElementRef);
@@ -19,24 +19,4 @@ describe('HoverBoldDirective', () => {
     const directive = new HoverBoldDirective(elRef);
     expect(directive).toBeTruthy();
   });
-
-  // it('should be bold on hover', () => {
-  //   expect(elRef.nativeElement.style.fontWeight === '400')
-  //   const directive = new HoverBoldDirective(elRef);
-  //   expect(directive).toBeTruthy();
-
-  //   elRef.nativeElement.dispatchEvent(new MouseEvent('mouseenter', {
-  //     view: window,
-  //     bubbles: true,
-  //     cancelable: true
-  //   }));
-  //   expect(elRef.nativeElement.style.fontWeight === '550')
-
-  //   elRef.nativeElement.dispatchEvent(new MouseEvent('mouseleave', {
-  //     view: window,
-  //     bubbles: true,
-  //     cancelable: true
-  //   }));
-  //   expect(elRef.nativeElement.style.fontWeight === '400')
-  // });
 });
